@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-import ResultMedia from "../ResultMedia/ResultMedia";
 import store from "../../store";
+import axios from "axios";
+import ResultMedia from "../ResultMedia/ResultMedia";
 
 class Results extends Component {
   constructor() {
@@ -19,22 +20,28 @@ class Results extends Component {
         searchInput: reduxState.searchInput
       });
     });
-    // console.log('whatever')
+    axios.get(`/api/search?term=${this.state.searchInput}`).then(res => {
+      this.setState({
+        results: res.data.results
+      });
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchInput !== this.state.searchInput) {
-        console.log('noice')
+      axios.get(`/api/search?term=${this.state.searchInput}`).then(res => {
+        this.setState({
+          results: res.data.results
+        });
+      });
     }
   }
 
   render() {
-    return (
-      <div className="results">
-        Results!
-        <ResultMedia />
-      </div>
-    );
+    const mappedResults = this.state.results.map((el, i) => (
+      <ResultMedia data={el} key={i} />
+    ));
+    return <div className="results">{mappedResults}</div>;
   }
 }
 

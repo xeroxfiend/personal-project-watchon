@@ -1,9 +1,11 @@
 import React from 'react'
 
-function ResultMedia(props) {
+function ResultMedia() {
+    // console.log(this.props)
     return (
         <div className="result-media">
-            ResultMedia!
+            test
+            {/* {this.props.data} */}
         </div>
     )
 }
