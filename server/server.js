@@ -29,7 +29,7 @@ app.use(
 
 
 
-// app.get('/api/search', mediaCtrl.search) This endpoint does a call to the third party api and gets everything based on a title search.
+app.get('/api/search', mediaCtrl.search)
 
 // app.get('/api/playlist', mediaCtrl.getPlaylist) This endpoint will query my database and get everything on a playlist by user id.
 
@@ -41,7 +41,7 @@ app.use(
 
 // app.delete('/api/playlist/:id', mediaCtrl.deleteFromPlaylist) This endpoint allows a user to delete a media item from their playlist.
 
-
+// optional get that will help me to sort my playlist (get by title)
 
 //------------ Auth endpoints ------------//
 

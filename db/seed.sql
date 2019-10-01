@@ -1,7 +1,7 @@
 create table users (
     user_id serial primary key,
-    email text,
-    hash text
+    email varchar(100),
+    hash varchar
 );
 
 insert into users (email, hash)
@@ -11,12 +11,12 @@ values ('bob@bob.com', 'asdf'),
 create table media (
     media_id serial primary key,
     data json,
-    api_id int
+    api_id varchar
 );
 
 insert into media (data, api_id)
-values ('{"title": "Breaking Bad", "episodes": "100", "year": "2010"}', 1),
-('{"title": "Game of Thrones", "episodes": "60", "year": "2014"}', 2);
+values ('{"title": "Breaking Bad", "episodes": "100", "year": "2010"}', '57632f654c0a0e72f6d0cece'),
+('{"title": "Game of Thrones", "episodes": "60", "year": "2014"}', '58393695ebb7f949ccdaa103');
 
 
 create table playlist (
