@@ -34,6 +34,7 @@ class Results extends Component {
         this.setState({
           results: res.data.results
         });
+        console.log(res.data.results)
       });
     }
   }
