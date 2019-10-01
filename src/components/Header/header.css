@@ -17,7 +17,11 @@
     border-radius: 50%;
 }
 
-.search-icon {
+.search-button-header {
+    height: 30px;
+}
+
+.search-button-landing {
     height: 30px;
 }
 

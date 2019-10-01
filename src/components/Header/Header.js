@@ -78,7 +78,7 @@ class Header extends Component {
               onClick={() => this.handleSearch()}
               src={searchIcon}
               alt=""
-              className="search-icon"
+              className="search-button-header"
             />
           </div>
           {this.state.userId ? (

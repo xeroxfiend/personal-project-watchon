@@ -1,13 +1,9 @@
-import React from 'react'
+import React, {Component} from "react";
 
-function ResultMedia() {
-    // console.log(this.props)
-    return (
-        <div className="result-media">
-            test
-            {/* {this.props.data} */}
-        </div>
-    )
+class ResultMedia extends Component {
+  render() {
+    return <div className="result-media">{this.props.data.name}</div>;
+  }
 }
 
-export default ResultMedia
+export default ResultMedia;
