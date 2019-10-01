@@ -43,17 +43,20 @@ app.get('/api/search', mediaCtrl.search)
 
 // optional get that will help me to sort my playlist (get by title)
 
+
+
 //------------ Auth endpoints ------------//
 
 
+app.post('/auth/login', authCtrl.login)
 
-// app.post('/auth/login', authCtrl.login) Allows user to login.
+app.post('/auth/register', authCtrl.register)
 
-// app.delete('/auth/logout', authCtrl.logout) Allows user to logout.
+app.delete('/auth/logout', authCtrl.logout)
 
 
+//----------------------------------------//
 
-//
 
 massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
