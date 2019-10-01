@@ -23,7 +23,8 @@ class Results extends Component {
     axios.get(`/api/search?term=${this.state.searchInput}`).then(res => {
       this.setState({
         results: res.data.results
-      });
+    });
+    console.log(res.data.results)
     });
   }
 

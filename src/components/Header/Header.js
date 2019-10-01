@@ -48,7 +48,9 @@ class Header extends Component {
     if (this.props.location.pathname === "/") {
       header = (
         <div className="landing-header">
-          <img src={logo} alt="logo" className="logo" />
+          <Link to="/">
+            <img src={logo} alt="logo" className="logo" />
+          </Link>
           {this.state.userId ? (
             <Link to="/playlist">
               <h4 className="logged-in-header">Playlist</h4>
@@ -65,7 +67,9 @@ class Header extends Component {
     } else {
       header = (
         <div className="header">
-          <img src={logo} alt="logo" className="logo" />
+          <Link to="/">
+            <img src={logo} alt="logo" className="logo" />
+          </Link>
           <div className="search">
             <input
               placeholder="Search for a TV show or Movie"

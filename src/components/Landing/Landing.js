@@ -35,6 +35,7 @@ class Landing extends Component {
         </h1>
         <div className="search">
           <input
+            placeholder='Search for a TV show or Movie'
             value={this.state.searchInput}
             onChange={e => this.handleChange(e.target.value)}
             type="text"
