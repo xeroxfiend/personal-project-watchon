@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
-import store from "../../store";
+import store, {UPDATE_SEARCH_STATE} from "../../store";
+import {Link} from "react-router-dom";
+import "./header.css";
 // import loggedInImage from "../../assets/logged_in.png";
 import logo from "../../assets/logo.png";
-import {Link} from "react-router-dom";
-import './header.css'
+import searchIcon from "../../assets/search.png";
 
 class Header extends Component {
   constructor() {
@@ -16,7 +17,31 @@ class Header extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    store.subscribe(() => {
+      const reduxState = store.getState();
+      this.setState({
+        userId: reduxState.userId
+      });
+    });
+  }
+
+  handleChange(value) {
+    this.setState({
+      searchInput: value
+    });
+  }
+
+  handleSearch() {
+    store.dispatch({
+      type: UPDATE_SEARCH_STATE,
+      payload: this.state.searchInput
+    });
+    this.setState({
+      searchInput: ""
+    });
+    this.props.history.push("/results");
+  }
 
   render() {
     let header;
@@ -41,6 +66,21 @@ class Header extends Component {
       header = (
         <div className="header">
           <img src={logo} alt="logo" className="logo" />
+          <div className="search">
+            <input
+              placeholder="Search for a TV show or Movie"
+              value={this.state.searchInput}
+              onChange={e => this.handleChange(e.target.value)}
+              type="text"
+              className="search"
+            />
+            <img
+              onClick={() => this.handleSearch()}
+              src={searchIcon}
+              alt=""
+              className="search-icon"
+            />
+          </div>
           {this.state.userId ? (
             <Link to="/playlist">
               <h4 className="logged-in-header">Playlist</h4>

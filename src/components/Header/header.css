@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
 .landing-header {
     height: 100px;
     display: flex;
@@ -10,4 +15,17 @@
 .logo {
     height: 60px;
     border-radius: 50%;
+}
+
+.search-icon {
+    height: 30px;
+}
+
+.header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(108, 108, 173);
+    padding: 0 30px 0 30px;
 }
