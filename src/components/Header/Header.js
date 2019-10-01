@@ -1,11 +1,12 @@
 import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
-import store, {UPDATE_SEARCH_STATE} from "../../store";
+import store, {UPDATE_SEARCH_STATE, ADD_USER} from "../../store";
 import {Link} from "react-router-dom";
 import "./header.css";
 // import loggedInImage from "../../assets/logged_in.png";
 import logo from "../../assets/logo.png";
 import searchIcon from "../../assets/search.png";
+import axios from "axios";
 
 class Header extends Component {
   constructor() {
@@ -18,6 +19,17 @@ class Header extends Component {
   }
 
   componentDidMount() {
+    axios.get("/auth/user").then(res => {
+      console.log(res.data);
+      store.dispatch({
+        type: ADD_USER,
+        payload: {
+          userEmail: res.data.email,
+          userId: res.data.userId
+        }
+      });
+    });
+    
     store.subscribe(() => {
       const reduxState = store.getState();
       this.setState({

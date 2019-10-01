@@ -17,7 +17,7 @@ app.use(
     saveUninitialized: false,
     secret: SESSION_SECRET,
     cookie: {
-      maxAge: 1000 * 60 * 60
+      maxAge: 1000 * 60 * 60 * 24 * 30
     }
   })
 );
@@ -53,6 +53,8 @@ app.post('/auth/login', authCtrl.login)
 app.post('/auth/register', authCtrl.register)
 
 app.delete('/auth/logout', authCtrl.logout)
+
+app.get('/auth/user', authCtrl.getUserData)
 
 
 //----------------------------------------//

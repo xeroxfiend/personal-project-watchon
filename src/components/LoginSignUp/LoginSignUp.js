@@ -76,13 +76,15 @@ class LoginSignUp extends Component {
     return (
       <div className="login-sign-up">
         <input
+          placeholder="Email"
           onChange={e => this.handleChange(e.target.value, "email")}
           type="text"
           className="auth-email"
         />
         <input
+          placeholder="Password"
           onChange={e => this.handleChange(e.target.value, "password")}
-          type="text"
+          type="password"
           className="auth-password"
         />
         <button onClick={() => this.login()} className="login">
