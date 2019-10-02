@@ -33,9 +33,7 @@ app.get('/api/search', mediaCtrl.search)
 
 app.get('/api/playlist/:user_id', mediaCtrl.getPlaylist)
 
-// app.post('/api/playlist', mediaCtrl.addToPlaylist) This endpoint will allow you to add a new media item to the user's playlist. 
-// It will check to see if the entry already exists in the media table, if it does it does nothing, 
-// if it doesn't it adds it to the media table. Another query will access the playlist table and get the media info from the media table.
+app.post('/api/playlist', mediaCtrl.addToPlaylist)
 
 // app.put('/api/playlist/:id', mediaCtrl.editRating) This endpoint allows a user to change their rating for a media item. 0-5
 

@@ -8,15 +8,15 @@ class PlaylistMedia extends Component {
         onClick={() => window.open(el.url)}
         src={el.icon}
         alt="location"
-        className="location"
+        className="location-playlist"
       />
     ));
 
     return (
-      <div className="result-media">
+      <div className="playlist-media">
         {this.props.data.name}
         <img src={this.props.data.picture} alt="poster" className="poster" />
-        <h3 className="available">Available on: {mappedLocations}</h3>
+        <h3 className="available-playlist">Available on: {mappedLocations}</h3>
       </div>
     );
   }

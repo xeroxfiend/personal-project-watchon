@@ -9,14 +9,15 @@ class ResultMedia extends Component {
         onClick={() => window.open(el.url)}
         src={el.icon}
         alt="location"
-        className="location"
+        className="location-results"
       />
-    ));
+    ))
+    
     return (
       <div className="result-media">
         {this.props.data.name}
         <img src={this.props.data.picture} alt="poster" className="poster" />
-        <h3 className="available">Available on: {mappedLocations}</h3>
+        <h3 className="available-results">Available on: {mappedLocations}</h3>
       </div>
     );
   }

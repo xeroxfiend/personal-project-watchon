@@ -1,4 +1,4 @@
-const axios = require('axios')
+const axios = require("axios");
 
 module.exports = {
   search: (req, res) => {
@@ -22,11 +22,25 @@ module.exports = {
   },
 
   getPlaylist: (req, res) => {
-      const db = req.app.get('db')
-      const {user_id} = req.params
+    const db = req.app.get("db");
+    const {user_id} = req.params;
 
-      db.get_playlist(user_id).then(result => {
-          res.status(200).send(result)
-      })
+    db.get_playlist(user_id).then(result => {
+      res.status(200).send(result);
+    });
+  },
+
+  addToPlaylist: async (req, res) => {
+    const db = req.app.get("db");
+    const {userId, mediaId, data, api_id} = req.body;
+
+    const found = await db.find_media(mediaId);
+
+    if (found) {
+      db.add_to_playlist({userId, mediaId});
+    } else {
+      const newMediaId = await db.add_to_media({data, api_id});
+      db.add_to_playlist(userId, newMediaId);
+    }
   }
 };
