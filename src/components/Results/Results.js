@@ -24,7 +24,6 @@ class Results extends Component {
       this.setState({
         results: res.data.results
     });
-    console.log(res.data.results)
     });
   }
 
@@ -34,7 +33,6 @@ class Results extends Component {
         this.setState({
           results: res.data.results
         });
-        console.log(res.data.results)
       });
     }
   }

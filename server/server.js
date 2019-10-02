@@ -31,8 +31,6 @@ app.use(
 
 app.get('/api/search', mediaCtrl.search)
 
-app.get('/api/media/:api_id', mediaCtrl.findMediaId)
-
 app.get('/api/playlist/:user_id', mediaCtrl.getPlaylist)
 
 app.post('/api/playlist', mediaCtrl.addToPlaylist)

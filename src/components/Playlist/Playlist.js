@@ -15,7 +15,6 @@ class Playlist extends Component {
 
   componentDidMount() {
     axios.get(`/api/playlist/${this.state.userId}`).then(res => {
-      console.log(res.data);
       this.setState({
         playlist: res.data
       });

@@ -2,15 +2,19 @@ import React, {Component} from "react";
 
 class PlaylistMedia extends Component {
   render() {
-    const mappedLocations = this.props.data.locations.map((el, i) => (
-      <img
-        key={i}
-        onClick={() => window.open(el.url)}
-        src={el.icon}
-        alt="location"
-        className="location-playlist"
-      />
-    ));
+    let mappedLocations;
+
+    if (this.props.data && this.props.data.locations) {
+      const mappedLocations = this.props.data.locations.map((el, i) => (
+        <img
+          key={i}
+          onClick={() => window.open(el.url)}
+          src={el.icon}
+          alt="location"
+          className="location-playlist"
+        />
+      ));
+    }
 
     return (
       <div className="playlist-media">

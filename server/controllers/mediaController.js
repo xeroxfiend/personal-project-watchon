@@ -30,7 +30,7 @@ module.exports = {
     });
   },
 
-  addToPlaylist: async req => {
+  addToPlaylist: async (req, res) => {
     const db = req.app.get("db");
     const {userId, data, api_id} = req.body;
 
@@ -55,7 +55,7 @@ module.exports = {
       db.add_to_playlist([userId, newMediaId]);
       return res.status(200).send({message: "Item added to playlist"});
     } else {
-      res.status(200).send({message: "Item already exists in the playlist"});
+      return res.status(200).send({message: "Item already exists in the playlist"});
     }
   }
 }
