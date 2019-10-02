@@ -5,7 +5,7 @@ class PlaylistMedia extends Component {
     let mappedLocations;
 
     if (this.props.data && this.props.data.locations) {
-      const mappedLocations = this.props.data.locations.map((el, i) => (
+      mappedLocations = this.props.data.locations.map((el, i) => (
         <img
           key={i}
           onClick={() => window.open(el.url)}

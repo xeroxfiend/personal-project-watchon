@@ -39,23 +39,25 @@ module.exports = {
     let foundPlaylistEntry;
     let newMediaId;
 
-    if (foundMediaId) {
+    if (foundMediaId[0]) {
       foundPlaylistEntry = await db.find_playlist_entry({
-        userId,
-        foundMediaId
+        userId: +userId,
+        foundMediaId: +foundMediaId[0].media_id
       });
     } else {
       newMediaId = await db.add_to_media({data, api_id});
     }
 
-    if (!foundPlaylistEntry && foundMediaId) {
-      db.add_to_playlist([userId, foundMediaId]);
+    if (!foundPlaylistEntry[0] && foundMediaId[0]) {
+      db.add_to_playlist([+userId, +foundMediaId[0].media_id]);
       return res.status(200).send({message: "Item added to playlist"});
-    } else if (!foundPlaylistEntry && newMediaId) {
-      db.add_to_playlist([userId, newMediaId]);
+    } else if (!foundPlaylistEntry[0] && newMediaId[0]) {
+      db.add_to_playlist([+userId, +newMediaId[0].media_id]);
       return res.status(200).send({message: "Item added to playlist"});
     } else {
-      return res.status(200).send({message: "Item already exists in the playlist"});
+      return res
+        .status(200)
+        .send({message: "Item already exists in the playlist"});
     }
   }
-}
+};
