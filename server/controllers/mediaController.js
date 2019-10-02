@@ -23,9 +23,9 @@ module.exports = {
 
   getPlaylist: (req, res) => {
       const db = req.app.get('db')
-      const {userId} = req.params
+      const {user_id} = req.params
 
-      db.get_playlist(userId).then(result => {
+      db.get_playlist(user_id).then(result => {
           res.status(200).send(result)
       })
   }

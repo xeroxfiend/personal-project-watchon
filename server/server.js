@@ -31,7 +31,7 @@ app.use(
 
 app.get('/api/search', mediaCtrl.search)
 
-app.get('/api/playlist', mediaCtrl.getPlaylist)
+app.get('/api/playlist/:user_id', mediaCtrl.getPlaylist)
 
 // app.post('/api/playlist', mediaCtrl.addToPlaylist) This endpoint will allow you to add a new media item to the user's playlist. 
 // It will check to see if the entry already exists in the media table, if it does it does nothing, 
