@@ -30,17 +30,33 @@ module.exports = {
     });
   },
 
-  addToPlaylist: async (req, res) => {
+  addToPlaylist: async req => {
     const db = req.app.get("db");
     const {userId, mediaId, data, api_id} = req.body;
 
-    const found = await db.find_media(mediaId);
+    const foundPlaylistEntry = await db.find_playlist_entry({userId, mediaId});
 
-    if (found) {
+    if (foundPlaylistEntry)
+      return res.status(200).send({message: "Item already exists in playlist"});
+
+    const foundMediaEntry = await db.find_media(mediaId);
+
+    if (foundMediaEntry) {
       db.add_to_playlist({userId, mediaId});
+      return res.status(200).send({message: "item added to playlist"});
     } else {
       const newMediaId = await db.add_to_media({data, api_id});
       db.add_to_playlist(userId, newMediaId);
+      return res.status(200).send({message: "item added to playlist"});
     }
+  },
+
+  findMediaId: (req, res) => {
+      const db = req.app.get('db')
+      const {api_id} = req.params 
+
+      db.find_media(api_id).then(result => {
+          res.status(200).send(JSON.stringify(result[0].media_id))
+      })
   }
 };
