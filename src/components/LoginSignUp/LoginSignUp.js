@@ -72,6 +72,10 @@ class LoginSignUp extends Component {
     this.props.history.goBack();
   }
 
+  back() {
+    this.props.history.goBack();
+  }
+
   render() {
     return (
       <div className="login-sign-up">
@@ -92,6 +96,9 @@ class LoginSignUp extends Component {
         </button>
         <button onClick={() => this.register()} className="register">
           Register
+        </button>
+        <button onClick={() => this.back()} className="x">
+          X
         </button>
       </div>
     );

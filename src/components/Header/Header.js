@@ -3,10 +3,11 @@ import {withRouter} from "react-router-dom";
 import store, {UPDATE_SEARCH_STATE, ADD_USER} from "../../store";
 import {Link} from "react-router-dom";
 import "./header.css";
+import axios from "axios";
 // import loggedInImage from "../../assets/logged_in.png";
 import logo from "../../assets/logo.png";
 import searchIcon from "../../assets/search.png";
-import axios from "axios";
+import logoutIcon from "../../assets/logout.png";
 
 class Header extends Component {
   constructor() {
@@ -20,7 +21,6 @@ class Header extends Component {
 
   componentDidMount() {
     axios.get("/auth/user").then(res => {
-      console.log(res.data);
       store.dispatch({
         type: ADD_USER,
         payload: {
@@ -29,7 +29,7 @@ class Header extends Component {
         }
       });
     });
-    
+
     store.subscribe(() => {
       const reduxState = store.getState();
       this.setState({
@@ -55,6 +55,21 @@ class Header extends Component {
     this.props.history.push("/results");
   }
 
+  logout() {
+    axios.delete("/auth/logout").then(() => {
+      store.dispatch({
+        type: ADD_USER,
+        payload: {
+          userEmail: "",
+          userId: ""
+        }
+      });
+      if (this.props.history.location.pathname === "/playlist") {
+        this.props.history.push("/");
+      }
+    });
+  }
+
   render() {
     let header;
     if (this.props.location.pathname === "/") {
@@ -64,9 +79,17 @@ class Header extends Component {
             <img src={logo} alt="logo" className="logo" />
           </Link>
           {this.state.userId ? (
-            <Link to="/playlist">
-              <h4 className="logged-in-header">Playlist</h4>
-            </Link>
+            <div className='logged-in'>
+              <Link to="/playlist">
+                <h4 className="logged-in-header">Playlist</h4>
+              </Link>
+              <img
+                onClick={() => this.logout()}
+                src={logoutIcon}
+                alt="logout"
+                className="logout"
+              />
+            </div>
           ) : (
             <Link to="/login">
               <h4 className="not-logged-in">Register/Login</h4>
@@ -98,9 +121,17 @@ class Header extends Component {
             />
           </div>
           {this.state.userId ? (
-            <Link to="/playlist">
-              <h4 className="logged-in-header">Playlist</h4>
-            </Link>
+            <div className='logged-in'>
+              <Link to="/playlist">
+                <h4 className="logged-in-header">Playlist</h4>
+              </Link>
+              <img
+                onClick={() => this.logout()}
+                src={logoutIcon}
+                alt="logout"
+                className="logout"
+              />
+            </div>
           ) : (
             <Link to="/login">
               <h4 className="not-logged-in">Register/Login</h4>
