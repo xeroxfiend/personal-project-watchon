@@ -19,5 +19,14 @@ module.exports = {
       .then(result => {
         res.status(200).send(result.data);
       });
+  },
+
+  getPlaylist: (req, res) => {
+      const db = req.app.get('db')
+      const {userId} = req.params
+
+      db.get_playlist(userId).then(result => {
+          res.status(200).send(result)
+      })
   }
 };
