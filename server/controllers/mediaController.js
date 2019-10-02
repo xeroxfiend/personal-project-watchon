@@ -59,5 +59,16 @@ module.exports = {
         .status(200)
         .send({message: "Item already exists in the playlist"});
     }
+  },
+
+  deleteFromPlaylist: async (req, res) => {
+    const db = req.app.get("db");
+    const {userId, api_id} = req.body;
+
+    const mediaId = await db.find_media(api_id);
+
+    db.delete_from_playlist([userId, mediaId[0].media_id]).then(() => {
+      res.status(200).send({message: "Item removed from playlist"});
+    });
   }
 };

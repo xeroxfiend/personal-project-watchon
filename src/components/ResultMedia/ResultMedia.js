@@ -19,7 +19,8 @@ class ResultMedia extends Component {
       data: JSON.stringify({
         name: this.props.data.name,
         poster: this.props.data.picture,
-        locations: this.props.data.locations
+        locations: this.props.data.locations,
+        api_id: this.props.data.id
       }),
       api_id: this.props.data.id
     }).then(res => {

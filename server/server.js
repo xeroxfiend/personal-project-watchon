@@ -35,9 +35,9 @@ app.get('/api/playlist/:user_id', mediaCtrl.getPlaylist)
 
 app.post('/api/playlist', mediaCtrl.addToPlaylist)
 
-// app.put('/api/playlist/:id', mediaCtrl.editRating) This endpoint allows a user to change their rating for a media item. 0-5
+app.delete('/api/playlist/', mediaCtrl.deleteFromPlaylist)
 
-// app.delete('/api/playlist/:id', mediaCtrl.deleteFromPlaylist) This endpoint allows a user to delete a media item from their playlist.
+// app.put('/api/playlist/:id', mediaCtrl.editRating) This endpoint allows a user to change their rating for a media item. 0-5
 
 // optional get that will help me to sort my playlist (get by title)
 
