@@ -32,31 +32,30 @@ module.exports = {
 
   addToPlaylist: async req => {
     const db = req.app.get("db");
-    const {userId, mediaId, data, api_id} = req.body;
+    const {userId, data, api_id} = req.body;
 
-    const foundPlaylistEntry = await db.find_playlist_entry({userId, mediaId});
+    const foundMediaId = await db.find_media(api_id);
 
-    if (foundPlaylistEntry)
-      return res.status(200).send({message: "Item already exists in playlist"});
+    let foundPlaylistEntry;
+    let newMediaId;
 
-    const foundMediaEntry = await db.find_media(mediaId);
-
-    if (foundMediaEntry) {
-      db.add_to_playlist({userId, mediaId});
-      return res.status(200).send({message: "item added to playlist"});
+    if (foundMediaId) {
+      foundPlaylistEntry = await db.find_playlist_entry({
+        userId,
+        foundMediaId
+      });
     } else {
-      const newMediaId = await db.add_to_media({data, api_id});
-      db.add_to_playlist(userId, newMediaId);
-      return res.status(200).send({message: "item added to playlist"});
+      newMediaId = await db.add_to_media({data, api_id});
     }
-  },
 
-  findMediaId: (req, res) => {
-      const db = req.app.get('db')
-      const {api_id} = req.params 
-
-      db.find_media(api_id).then(result => {
-          res.status(200).send(JSON.stringify(result[0].media_id))
-      })
+    if (!foundPlaylistEntry && foundMediaId) {
+      db.add_to_playlist([userId, foundMediaId]);
+      return res.status(200).send({message: "Item added to playlist"});
+    } else if (!foundPlaylistEntry && newMediaId) {
+      db.add_to_playlist([userId, newMediaId]);
+      return res.status(200).send({message: "Item added to playlist"});
+    } else {
+      res.status(200).send({message: "Item already exists in the playlist"});
+    }
   }
-};
+}

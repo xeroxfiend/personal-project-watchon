@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./resultmedia.css";
 import axios from "axios";
 import store from "../../store";
+import swal from "sweetalert2";
 
 class ResultMedia extends Component {
   constructor() {
@@ -12,19 +13,18 @@ class ResultMedia extends Component {
     };
   }
 
-  async addToPlaylist() {
-    const foundMediaId = await axios.get(`/api/media/${this.props.data.id}`);
-
+  addToPlaylist() {
     axios.post("/api/playlist", {
       userId: this.state.userId,
-      mediaId: foundMediaId,
       data: JSON.stringify({
         name: this.props.data.name,
         poster: this.props.data.picture,
         locations: this.props.data.locations
       }),
       api_id: this.props.data.id
-    });
+    }).then(res => {
+        swal.fire(res.data.message)
+    })
   }
 
   render() {
