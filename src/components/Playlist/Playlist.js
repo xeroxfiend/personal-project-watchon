@@ -23,6 +23,13 @@ class Playlist extends Component {
   }
 
   componentDidMount() {
+      console.log(this.state.userId)
+      store.subscribe(() => {
+          const reduxState = store.getState()
+          this.setState({
+              userId: reduxState.userId
+          })
+      })
     this.getPlaylist()
   }
 
