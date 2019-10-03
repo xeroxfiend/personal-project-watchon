@@ -1,7 +1,7 @@
 @import '../../scssVariables/variables';
 .landing {
     @include flexCenter(column);
-    height: 90vh;
+    height: 90.1vh;
     background: $primaryBackground;
     .landing-form {
         height: 300px;

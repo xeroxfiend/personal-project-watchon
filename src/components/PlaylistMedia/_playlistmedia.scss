@@ -1,4 +1,21 @@
 @import './scssVariables/variables';
+.playlist-media {
+    height: 450px;
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: $secondaryBackground;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    .poster {
+        height: 300px;
+        width: 200px;
+    }
+}
+
 .star-rating {
     display: flex;
 }
