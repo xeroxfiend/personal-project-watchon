@@ -15,6 +15,12 @@ class PlaylistMedia extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      rating: this.props.data.rating
+    });
+  }
+
   remove() {
     axios
       .delete(
@@ -28,14 +34,32 @@ class PlaylistMedia extends Component {
 
   handleRating(num) {
     if (this.state.rating === 1 && num === 1) {
-      return this.setState({
-        rating: 0
-      });
+      return this.setState(
+        {
+          rating: 0
+        },
+        () => {
+          axios.put("/api/playlist", {
+            userId: this.state.userId,
+            api_id: this.props.data.api_id,
+            rating: this.state.rating
+          });
+        }
+      );
     }
 
-    this.setState({
-      rating: num
-    });
+    this.setState(
+      {
+        rating: num
+      },
+      () => {
+        axios.put("/api/playlist", {
+          userId: this.state.userId,
+          api_id: this.props.data.api_id,
+          rating: this.state.rating
+        });
+      }
+    );
   }
 
   render() {
@@ -61,7 +85,6 @@ class PlaylistMedia extends Component {
           alt="poster"
           className="poster"
         />
-        <h3>Rating: {this.props.data.rating}</h3>
         <h3 className="available-playlist">Available on: {mappedLocations}</h3>
         <div className="star-rating">
           <img
