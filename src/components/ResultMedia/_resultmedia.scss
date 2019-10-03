@@ -1,5 +1,34 @@
 @import './scssVariables/variables';
-.poster {
-    height: 300px;
-    width: 200px;
+.result-media {
+    height: 450px;
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+    background: $secondaryBackground;
+    color: white;
+    .media-title {
+        font-size: 2rem;
+        text-overflow: ellipsis;
+        width: 350px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    ;
+    .poster {
+        height: 300px;
+        width: 200px;
+    }
+    ;
+    .available-results {
+        font-size: 1.5rem;
+    }
+    .add-to-playlist {
+        width: 90px;
+    }
+    ;
+    .location-results {
+        border: 1px black solid;
+    }
 }

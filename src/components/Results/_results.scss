@@ -1,1 +1,7 @@
 @import './scssVariables/variables';
+.results {
+    min-height: 90.1vh;
+    background: $primaryBackground;
+    display: flex;
+    flex-wrap: wrap;
+}

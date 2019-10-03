@@ -2,12 +2,12 @@ import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
 import store, {UPDATE_SEARCH_STATE, ADD_USER} from "../../store";
 import {Link} from "react-router-dom";
-// import "./header.css";
 import axios from "axios";
 // import loggedInImage from "../../assets/logged_in.png";
 import logo from "../../assets/logo.png";
 import searchIcon from "../../assets/search.png";
 import logoutIcon from "../../assets/logout.png";
+import swal from "sweetalert2";
 
 class Header extends Component {
   constructor() {
@@ -45,6 +45,9 @@ class Header extends Component {
   }
 
   handleSearch() {
+    if (!this.state.searchInput) {
+      return swal.fire('Enter a search!')
+    }
     store.dispatch({
       type: UPDATE_SEARCH_STATE,
       payload: this.state.searchInput
@@ -107,11 +110,10 @@ class Header extends Component {
           </Link>
           <div className="search">
             <input
-              placeholder="Search for a TV show or Movie"
               value={this.state.searchInput}
               onChange={e => this.handleChange(e.target.value)}
               type="text"
-              className="search"
+              className="search-bar-header"
             />
             <img
               onClick={() => this.handleSearch()}
@@ -143,19 +145,5 @@ class Header extends Component {
     return <div className="header-container">{header}</div>;
   }
 }
-
-//   render() {
-//     return (
-//       <div className="header-container">
-//         {this.props.location.pathname === "/" ||
-//         this.props.location.pathname === "/login" ? (
-//           <div className="header-no-search"></div>
-//         ) : (
-//           <div className="header">Header!</div>
-//         )}
-//       </div>
-//     );
-//   }
-// }
 
 export default withRouter(Header);

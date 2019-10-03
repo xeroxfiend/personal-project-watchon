@@ -25,10 +25,6 @@ img:hover {
     height: 30px;
 }
 
-.search-button-header {
-    height: 30px;
-}
-
 .search-button-landing {
     height: 30px;
 }
@@ -40,4 +36,13 @@ img:hover {
     align-items: center;
     background: $primaryBackground;
     padding: 0 30px 0 30px;
+    .search {
+        @include flexCenter(row) .search-button-header {
+            height: 30px;
+        }
+        ;
+        .search-bar-header {
+            margin-right: 20px;
+        }
+    }
 }

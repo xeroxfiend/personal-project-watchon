@@ -1,6 +1,6 @@
 $primaryBackground: rgb(108, 108, 173);
-$primaryText: rgb(58, 57, 57);
-$primaryButton: rgb(72, 72, 180);
+$secondaryBackground: rgb(72, 72, 180);
+$primaryText: rgb(100, 78, 78);
 @mixin flexCenter($direction) {
     display: flex;
     justify-content: center;

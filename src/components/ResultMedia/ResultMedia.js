@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-// import "./resultmedia.css";
 import axios from "axios";
 import store from "../../store";
 import swal from "sweetalert2";
@@ -44,7 +43,7 @@ class ResultMedia extends Component {
 
     return (
       <div className="result-media">
-        {this.props.data.name}
+        <h2 className='media-title'>{this.props.data.name}</h2>
         <img src={this.props.data.picture} alt="poster" className="poster" />
         <h3 className="available-results">Available on: {mappedLocations}</h3>
         <button
