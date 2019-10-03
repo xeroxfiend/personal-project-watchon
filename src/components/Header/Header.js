@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {withRouter} from "react-router-dom";
 import store, {UPDATE_SEARCH_STATE, ADD_USER} from "../../store";
 import {Link} from "react-router-dom";
-import "./header.css";
+// import "./header.css";
 import axios from "axios";
 // import loggedInImage from "../../assets/logged_in.png";
 import logo from "../../assets/logo.png";

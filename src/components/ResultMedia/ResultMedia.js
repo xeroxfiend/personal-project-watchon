@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import "./resultmedia.css";
+// import "./resultmedia.css";
 import axios from "axios";
 import store from "../../store";
 import swal from "sweetalert2";

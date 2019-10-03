@@ -1,0 +1,12 @@
+@import './components/Header/_header.scss';
+@import './components/Playlist/_playlist.scss';
+@import './components/PlaylistMedia/_playlistmedia.scss';
+@import './components/ResultMedia/_resultmedia.scss';
+@import './components/Results/_results.scss';
+@import './components/LoginSignUp/loginsignup.scss';
+@import './components//Landing/landing';
+@import './scssVariables/_variables';
+* {
+    margin: 0;
+    padding: 0
+}

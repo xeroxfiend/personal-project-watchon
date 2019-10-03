@@ -1,13 +1,13 @@
+@import './scssVariables/variables';
 .star-rating {
     display: flex;
 }
 
-.empty-star:hover {
-    filter: sepia(60%) saturate(3759%) hue-rotate(346deg) brightness(95%) contrast(101%);
-}
-
 .empty-star {
     height: 20px;
+    &:hover {
+        filter: sepia(60%) saturate(3759%) hue-rotate(346deg) brightness(95%) contrast(101%);
+    }
 }
 
 .filled-star {

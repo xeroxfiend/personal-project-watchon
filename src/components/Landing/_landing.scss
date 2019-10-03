@@ -1,0 +1,4 @@
+@import '../../scssVariables/variables';
+.landing {
+    @include flexCenter(column);
+}

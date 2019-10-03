@@ -1,14 +1,10 @@
-* {
-    margin: 0;
-    padding: 0
-}
-
+@import './scssVariables/variables';
 .landing-header {
     height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgb(108, 108, 173);
+    background: $primaryBackground;
     padding: 0 30px 0 30px;
 }
 
@@ -42,6 +38,6 @@ img:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgb(108, 108, 173);
+    background: $primaryBackground;
     padding: 0 30px 0 30px;
 }
