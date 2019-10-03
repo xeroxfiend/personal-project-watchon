@@ -83,7 +83,7 @@ class Header extends Component {
           </Link>
           {this.state.userId ? (
             <div className='logged-in'>
-              <Link to="/playlist">
+              <Link className="logged-in-header" to="/playlist">
                 <h4 className="logged-in-header">Playlist</h4>
               </Link>
               <img
@@ -94,7 +94,7 @@ class Header extends Component {
               />
             </div>
           ) : (
-            <Link to="/login">
+            <Link className="not-logged-in" to="/login">
               <h4 className="not-logged-in">Register/Login</h4>
             </Link>
           )}
@@ -124,7 +124,7 @@ class Header extends Component {
           </div>
           {this.state.userId ? (
             <div className='logged-in'>
-              <Link to="/playlist">
+              <Link className="logged-in-header" to="/playlist">
                 <h4 className="logged-in-header">Playlist</h4>
               </Link>
               <img
@@ -135,7 +135,7 @@ class Header extends Component {
               />
             </div>
           ) : (
-            <Link to="/login">
+            <Link className="not-logged-in" to="/login">
               <h4 className="not-logged-in">Register/Login</h4>
             </Link>
           )}

@@ -15,6 +15,10 @@
         height: 100vh;
     }
     
+    html {
+        background: $primaryBackground;
+    }
+    
     .App {
         color: $primaryText;
     }
