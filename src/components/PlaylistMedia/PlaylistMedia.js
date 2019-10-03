@@ -2,13 +2,16 @@ import React, {Component} from "react";
 import axios from "axios";
 import store from "../../store";
 import swal from "sweetalert2";
+import starIcon from '../../assets/star.png'
+import './playlistmedia.css'
 
 class PlaylistMedia extends Component {
   constructor() {
     super();
     const reduxState = store.getState();
     this.state = {
-      userId: reduxState.userId
+      userId: reduxState.userId,
+      rating: null
     };
   }
 
@@ -21,6 +24,13 @@ class PlaylistMedia extends Component {
         swal.fire(res.data.message);
         this.props.getPlaylistFn();
       });
+  }
+
+  handleRating(num) {
+      this.setState({
+          rating: num
+      })
+      console.log(this.state)
   }
 
   render() {
@@ -48,6 +58,13 @@ class PlaylistMedia extends Component {
         />
         <h3>Rating: {this.props.data.rating}</h3>
         <h3 className="available-playlist">Available on: {mappedLocations}</h3>
+        <div className="star-rating">
+            <img onClick={() => this.handleRating(1)} src={starIcon} alt="star" className="star 1"/>
+            <img onClick={() => this.handleRating(2)} src={starIcon} alt="star" className="star 2"/>
+            <img onClick={() => this.handleRating(3)} src={starIcon} alt="star" className="star 3"/>
+            <img onClick={() => this.handleRating(4)} src={starIcon} alt="star" className="star 4"/>
+            <img onClick={() => this.handleRating(5)} src={starIcon} alt="star" className="star 5"/>
+        </div>
         <button onClick={() => this.remove()} className="remove">
           Remove
         </button>
