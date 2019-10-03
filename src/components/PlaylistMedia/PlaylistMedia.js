@@ -46,6 +46,7 @@ class PlaylistMedia extends Component {
           alt="poster"
           className="poster"
         />
+        <h3>Rating: {this.props.data.rating}</h3>
         <h3 className="available-playlist">Available on: {mappedLocations}</h3>
         <button onClick={() => this.remove()} className="remove">
           Remove
