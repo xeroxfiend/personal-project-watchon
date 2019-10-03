@@ -36,8 +36,8 @@ module.exports = {
 
     const foundMediaId = await db.find_media(api_id);
 
-    let foundPlaylistEntry;
-    let newMediaId;
+    let foundPlaylistEntry = []
+    let newMediaId = []
 
     if (foundMediaId[0]) {
       foundPlaylistEntry = await db.find_playlist_entry({

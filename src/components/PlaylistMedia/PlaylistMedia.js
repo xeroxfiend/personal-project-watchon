@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
 import store from "../../store";
-import swal from "sweetalert2";
 import starIcon from "../../assets/star.png";
 import "./playlistmedia.css";
 
@@ -26,8 +25,7 @@ class PlaylistMedia extends Component {
       .delete(
         `/api/playlist?userId=${this.state.userId}&api_id=${this.props.data.api_id}`
       )
-      .then(res => {
-        swal.fire(res.data.message);
+      .then(() => {
         this.props.getPlaylistFn();
       });
   }
