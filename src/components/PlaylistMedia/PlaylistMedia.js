@@ -19,6 +19,7 @@ class PlaylistMedia extends Component {
       )
       .then(res => {
         swal.fire(res.data.message);
+        this.props.getPlaylistFn();
       });
   }
 

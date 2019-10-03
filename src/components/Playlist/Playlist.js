@@ -11,9 +11,10 @@ class Playlist extends Component {
       playlist: [],
       userId: reduxState.userId
     };
+    this.getPlaylist = this.getPlaylist.bind(this);
   }
 
-  componentDidMount() {
+  getPlaylist() {
     axios.get(`/api/playlist/${this.state.userId}`).then(res => {
       this.setState({
         playlist: res.data
@@ -21,9 +22,13 @@ class Playlist extends Component {
     });
   }
 
+  componentDidMount() {
+    this.getPlaylist()
+  }
+
   render() {
     const mappedPlaylist = this.state.playlist.map((el, i) => (
-      <PlaylistMedia data={el} key={i} />
+      <PlaylistMedia getPlaylistFn={this.getPlaylist} data={el} key={i} />
     ));
 
     return <div className="playlist">{mappedPlaylist}</div>;
