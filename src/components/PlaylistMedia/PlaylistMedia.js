@@ -12,19 +12,17 @@ class PlaylistMedia extends Component {
     };
   }
 
-//   remove() {
-//     axios
-//       .delete("/api/playlist/", {
-//         userId: this.state.userId,
-//         api_id: this.props.data.data.api_id
-//       })
-//       .then(res => {
-//         swal.fire(res.data.message);
-//       });
-//   }
+  remove() {
+    axios
+      .delete(
+        `/api/playlist?userId=${this.state.userId}&api_id=${this.props.data.api_id}`
+      )
+      .then(res => {
+        swal.fire(res.data.message);
+      });
+  }
 
   render() {
-    console.log(this.props.data.data);
     let mappedLocations;
 
     if (this.props.data && this.props.data.data.locations) {
