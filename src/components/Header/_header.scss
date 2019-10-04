@@ -32,10 +32,6 @@ img:hover {
     height: 30px;
 }
 
-.search-button-landing {
-    height: 30px;
-}
-
 .header {
     // height: 100px;
     display: flex;
@@ -49,6 +45,10 @@ img:hover {
         @include flexCenter(row);
         .search-button-header {
             height: 30px;
+            &:hover {
+                transform: scale(1.08);
+                transition: 1ms;
+            }
         }
         ;
         .search-bar-header {

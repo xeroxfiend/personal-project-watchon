@@ -58,6 +58,14 @@
     }
 }
 
+.search-button-landing {
+    height: 30px;
+    &:hover {
+        transform: scale(1.08);
+        transition: 1ms;
+    }
+}
+
 p+p {
     margin-left: 10px;
 }
