@@ -41,15 +41,19 @@
                 width: 380px;
                 padding: 10px 10px 10px 30px;
                 font-size: 1rem;
+                &::placeholder {
+                    opacity: 0.7;
+                }
+                ;
+                &:focus {
+                    box-shadow: 0 1px 10px 5px #00000083;
+                }
+                ;
+                &:hover {
+                    box-shadow: 0 1px 10px 5px #00000083;
+                }
             }
             ;
-            .search-bar:focus {
-                box-shadow: 0 1px 10px 5px #00000083;
-            }
-            ;
-            .search-bar:hover {
-                box-shadow: 0 1px 10px 5px #00000083;
-            }
         }
     }
 }
