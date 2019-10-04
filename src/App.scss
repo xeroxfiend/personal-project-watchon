@@ -41,3 +41,29 @@
     textarea:focus {
         outline: none;
     }
+    
+    .dashboard::-webkit-scrollbar {
+        width: 10px;
+        background: lightgrey;
+        height: 50px;
+    }
+    
+     ::-webkit-scrollbar {
+        width: 10px;
+    }
+    /* Track */
+    
+     ::-webkit-scrollbar-track {
+        // background: #f1f1f1;
+    }
+    /* Handle */
+    
+     ::-webkit-scrollbar-thumb {
+        background: $accent;
+        border-radius: 10px;
+    }
+    /* Handle on hover */
+    
+     ::-webkit-scrollbar-thumb:hover {
+        background: rgb(102, 101, 101);
+    }

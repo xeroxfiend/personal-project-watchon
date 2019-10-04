@@ -50,10 +50,21 @@ img:hover {
         }
         ;
         .search-bar-header {
-            margin-right: 20px;
-            height: 30px;
-            border: none;
+            margin: 10px;
             border-radius: 50px;
+            border: none;
+            height: 20px;
+            width: 380px;
+            padding: 10px 10px 10px 30px;
+            font-size: 1rem;
+            &:hover {
+                box-shadow: 0 1px 10px 5px #00000036;
+            }
+            ;
+            &:focus {
+                box-shadow: 0 1px 10px 5px #00000036;
+            }
+            ;
         }
     }
 }

@@ -1,15 +1,15 @@
 @import './scssVariables/variables';
 .playlist-media {
-    height: 470px;
+    height: 350px;
     display: flex;
-    width: 90%;
+    width: 80%;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 20px;
     background: $midGrey;
     color: white;
     border-radius: 10px;
-    margin-left: 20px;
+    margin-left: 15%;
     margin-bottom: 20px;
     .playlist-title {
         font-size: 2rem;

@@ -14,7 +14,29 @@ class Header extends Component {
     const reduxState = store.getState();
     this.state = {
       searchInput: "",
-      userId: reduxState.userId
+      userId: reduxState.userId,
+      placeholderText: [
+        "Game of Thrones",
+        "Chernobyl",
+        "Sherlock",
+        "The Sopranos",
+        "Star Trek",
+        "Fargo",
+        "The Office",
+        "The Shawshank Redemption",
+        "The Dark Knight",
+        "Pulp Fiction",
+        "Fight Club",
+        "Forrest Gump",
+        "The Matrix",
+        "Breaking Bad",
+        "The Godfather",
+        "Inception",
+        "Stranger Things",
+        "Seinfeld",
+        "Interstellar",
+        "Gladiator"
+      ]
     };
   }
 
@@ -45,7 +67,7 @@ class Header extends Component {
 
   handleSearch() {
     if (!this.state.searchInput) {
-      return swal.fire('Enter a search!')
+      return swal.fire("Enter a search!");
     }
     store.dispatch({
       type: UPDATE_SEARCH_STATE,
@@ -73,6 +95,7 @@ class Header extends Component {
   }
 
   render() {
+    const randomPlaceholder = Math.ceil(Math.random() * 20);
     let header;
     if (this.props.location.pathname === "/") {
       header = (
@@ -81,7 +104,7 @@ class Header extends Component {
             <h1 className="logo">watchON</h1>
           </Link>
           {this.state.userId ? (
-            <div className='logged-in'>
+            <div className="logged-in">
               <Link className="logged-in-header" to="/playlist">
                 <h4 className="logged-in-header">Playlist</h4>
               </Link>
@@ -104,11 +127,12 @@ class Header extends Component {
     } else {
       header = (
         <div className="header">
-          <Link className='logo' to="/">
-          <h1 className="logo">watchON</h1>
+          <Link className="logo" to="/">
+            <h1 className="logo">watchON</h1>
           </Link>
           <div className="search">
             <input
+              placeholder={`'${this.state.placeholderText[randomPlaceholder]}'`}
               value={this.state.searchInput}
               onChange={e => this.handleChange(e.target.value)}
               type="text"
@@ -122,7 +146,7 @@ class Header extends Component {
             />
           </div>
           {this.state.userId ? (
-            <div className='logged-in'>
+            <div className="logged-in">
               <Link className="logged-in-header" to="/playlist">
                 <h4 className="logged-in-header">Playlist</h4>
               </Link>
