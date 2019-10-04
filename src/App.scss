@@ -21,4 +21,23 @@
     
     .App {
         color: $primaryText;
+        button {
+            border: none;
+            width: 75px;
+            margin: 10px;
+            padding: 10px 10px 10px 10px;
+            border-radius: 50px;
+            background: $accent;
+        }
+        ;
+        input:focus,
+        textarea:focus {
+            outline: none;
+        }
+    }
+    
+    ;
+    button:focus,
+    textarea:focus {
+        outline: none;
     }

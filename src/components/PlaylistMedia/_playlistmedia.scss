@@ -1,15 +1,23 @@
 @import './scssVariables/variables';
 .playlist-media {
-    height: 450px;
+    height: 470px;
     display: flex;
-    width: 25%;
+    width: 90%;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 20px;
     background: $midGrey;
     color: white;
     border-radius: 10px;
+    margin-left: 20px;
     margin-bottom: 20px;
+    .playlist-title {
+        font-size: 2rem;
+        text-overflow: ellipsis;
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
     .poster {
         height: 300px;
         width: 200px;
@@ -22,6 +30,9 @@
 
 .remove {
     width: 100px;
+    &:hover {
+        box-shadow: 0 1px 10px 5px #00000083;
+    }
 }
 
 .empty-star {

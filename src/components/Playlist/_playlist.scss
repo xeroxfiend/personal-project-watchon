@@ -1,6 +1,10 @@
 @import './scssVariables/variables';
 .playlist {
-    min-height: 90.1vh;
+    display: flex;
+    flex-direction: column;
+    height: 90.1vh;
     background: $darkBg;
-    padding-top: 110px;
+    padding-top: 30px;
+    overflow: auto;
+    max-width: 90%;
 }

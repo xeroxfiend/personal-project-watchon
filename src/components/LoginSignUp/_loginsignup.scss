@@ -2,5 +2,80 @@
 .login-sign-up {
     @include flexCenter(column);
     height: 99.1vh;
-    background: $lightBg;
+    background: $midGrey;
+    .login-form-container {
+        background: $lightBg;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 3px 20px 5px #00000031;
+    }
+    .x-container {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        .x {
+            &:hover {
+                box-shadow: 0 1px 10px 5px #00000036;
+            }
+            ;
+        }
+    }
+    .login-inputs {
+        display: flex;
+        flex-direction: column;
+    }
+    ;
+    .auth-email {
+        margin: 10px;
+        border-radius: 50px;
+        border: none;
+        height: 25px;
+        width: 380px;
+        padding: 10px 10px 10px 30px;
+        font-size: 1rem;
+        &:hover {
+            box-shadow: 0 1px 10px 5px #00000036;
+        }
+        ;
+        &:focus {
+            box-shadow: 0 1px 10px 5px #00000036;
+        }
+        ;
+    }
+    ;
+    .auth-password {
+        margin: 10px;
+        border-radius: 50px;
+        border: none;
+        height: 25px;
+        width: 380px;
+        padding: 10px 10px 10px 30px;
+        font-size: 1rem;
+        &:hover {
+            box-shadow: 0 1px 10px 5px #00000036;
+        }
+        ;
+        &:focus {
+            box-shadow: 0 1px 10px 5px #00000036;
+        }
+        ;
+    }
+    ;
+    .login-buttons {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        .login {
+            &:hover {
+                box-shadow: 0 1px 10px 5px #00000036;
+            }
+            ;
+        }
+        .register {
+            &:hover {
+                box-shadow: 0 1px 10px 5px #00000036;
+            }
+            ;
+        }
+    }
 }
