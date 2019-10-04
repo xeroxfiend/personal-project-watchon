@@ -40,7 +40,7 @@ class Landing extends Component {
           </h3>
           <div className="search">
             <input
-              placeholder="type a thing"
+              placeholder="'Breaking Bad'"
               value={this.state.searchInput}
               onChange={e => this.handleChange(e.target.value)}
               type="text"
