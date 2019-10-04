@@ -60,6 +60,7 @@ class PlaylistMedia extends Component {
   }
 
   render() {
+    console.log(this.props.data.data)
     let mappedLocations;
 
     if (this.props.data && this.props.data.data.locations) {
@@ -69,55 +70,62 @@ class PlaylistMedia extends Component {
           onClick={() => window.open(el.url)}
           src={el.icon}
           alt="location"
-          className="location-playlist"
+          className={el.display_name}
         />
       ));
     }
 
     return (
       <div className="playlist-media">
-        <h2 className="playlist-title">{this.props.data.data.name}</h2>
-        <img
-          src={this.props.data.data.poster}
-          alt="poster"
-          className="poster"
-        />
-        <h3 className="available-playlist">Available on: {mappedLocations}</h3>
-        <div className="star-rating">
+        <div className="title-poster-playlist">
+          <h2 className="playlist-title">{this.props.data.data.name}</h2>
           <img
-            onClick={() => this.handleRating(1)}
-            src={starIcon}
-            alt="star"
-            className={this.state.rating >= 1 ? "filled-star" : "empty-star"}
-          />
-          <img
-            onClick={() => this.handleRating(2)}
-            src={starIcon}
-            alt="star"
-            className={this.state.rating >= 2 ? "filled-star" : "empty-star"}
-          />
-          <img
-            onClick={() => this.handleRating(3)}
-            src={starIcon}
-            alt="star"
-            className={this.state.rating >= 3 ? "filled-star" : "empty-star"}
-          />
-          <img
-            onClick={() => this.handleRating(4)}
-            src={starIcon}
-            alt="star"
-            className={this.state.rating >= 4 ? "filled-star" : "empty-star"}
-          />
-          <img
-            onClick={() => this.handleRating(5)}
-            src={starIcon}
-            alt="star"
-            className={this.state.rating >= 5 ? "filled-star" : "empty-star"}
+            src={this.props.data.data.poster}
+            alt="poster"
+            className="poster"
           />
         </div>
-        <button onClick={() => this.remove()} className="remove">
-          Remove
-        </button>
+        <div className="rating-available">
+          <div className="star-rating">
+            <img
+              onClick={() => this.handleRating(1)}
+              src={starIcon}
+              alt="star"
+              className={this.state.rating >= 1 ? "filled-star" : "empty-star"}
+            />
+            <img
+              onClick={() => this.handleRating(2)}
+              src={starIcon}
+              alt="star"
+              className={this.state.rating >= 2 ? "filled-star" : "empty-star"}
+            />
+            <img
+              onClick={() => this.handleRating(3)}
+              src={starIcon}
+              alt="star"
+              className={this.state.rating >= 3 ? "filled-star" : "empty-star"}
+            />
+            <img
+              onClick={() => this.handleRating(4)}
+              src={starIcon}
+              alt="star"
+              className={this.state.rating >= 4 ? "filled-star" : "empty-star"}
+            />
+            <img
+              onClick={() => this.handleRating(5)}
+              src={starIcon}
+              alt="star"
+              className={this.state.rating >= 5 ? "filled-star" : "empty-star"}
+            />
+          </div>
+          <h3 className="available-playlist">
+            <p className="available-text"> Available on: </p>
+            <div className="mapped-locations">{mappedLocations}</div>
+          </h3>
+          <button onClick={() => this.remove()} className="remove">
+            Remove
+          </button>
+        </div>
       </div>
     );
   }

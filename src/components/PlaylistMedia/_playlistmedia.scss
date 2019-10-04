@@ -2,19 +2,20 @@
 .playlist-media {
     height: 350px;
     display: flex;
-    width: 80%;
-    flex-direction: column;
-    flex-wrap: wrap;
+    width: 50%;
+    flex-direction: row;
     padding: 20px;
     background: $midGrey;
     color: white;
     border-radius: 10px;
-    margin-left: 15%;
+    margin-left: 30%;
     margin-bottom: 20px;
+    align-items: center;
+    // text-align: center;
     .playlist-title {
         font-size: 2rem;
         text-overflow: ellipsis;
-        width: 90%;
+        width: 300px;
         white-space: nowrap;
         overflow: hidden;
     }
@@ -22,6 +23,11 @@
         height: 300px;
         width: 200px;
     }
+}
+
+.mapped-locations {
+    display: flex;
+    flex-direction: column;
 }
 
 .star-rating {
@@ -45,4 +51,18 @@
 .filled-star {
     filter: sepia(60%) saturate(3759%) hue-rotate(346deg) brightness(95%) contrast(101%);
     height: 20px;
+}
+
+.Netflix {
+    background: #e50914;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 5px 0 5px 0;
+}
+
+.Amazon {
+    background: #ff9900;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 5px 0 5px 0;
 }
