@@ -2,4 +2,5 @@
 .login-sign-up {
     @include flexCenter(column);
     height: 99.1vh;
+    background: $lightBg;
 }

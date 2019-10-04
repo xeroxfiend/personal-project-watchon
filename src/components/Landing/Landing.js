@@ -36,7 +36,7 @@ class Landing extends Component {
       <div className="landing">
         <div className="landing-form">
           <h3 className="description">
-            Search for a Movie or TV show to see where you can watch it!
+            <p>Search</p> <p>for</p> <p>a</p> <p className='movie'>Movie</p> <p>or</p> <p className='tv'>TV</p> <p>show</p> <p>to</p> <p>see</p> <p>where</p> <p>you</p> <p>can</p> <p>watch</p> <p>it!</p>
           </h3>
           <div className="search">
             <input

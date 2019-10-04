@@ -23,13 +23,16 @@ class Playlist extends Component {
   }
 
   componentDidMount() {
-      store.subscribe(() => {
-          const reduxState = store.getState()
-          this.setState({
-              userId: reduxState.userId
-          })
-      })
-    this.getPlaylist()
+    if (!this.state.userId) {
+      return this.props.history.push("/");
+    }
+    store.subscribe(() => {
+      const reduxState = store.getState();
+      this.setState({
+        userId: reduxState.userId
+      });
+    });
+    this.getPlaylist();
   }
 
   render() {
@@ -37,7 +40,9 @@ class Playlist extends Component {
       <PlaylistMedia getPlaylistFn={this.getPlaylist} data={el} key={i} />
     ));
 
-    return <div className="playlist">{mappedPlaylist}</div>;
+    return <div className="playlist">
+    {mappedPlaylist}
+    </div>;
   }
 }
 

@@ -79,27 +79,31 @@ class LoginSignUp extends Component {
   render() {
     return (
       <div className="login-sign-up">
-        <input
-          placeholder="Email"
-          onChange={e => this.handleChange(e.target.value, "email")}
-          type="text"
-          className="auth-email"
-        />
-        <input
-          placeholder="Password"
-          onChange={e => this.handleChange(e.target.value, "password")}
-          type="password"
-          className="auth-password"
-        />
-        <button onClick={() => this.login()} className="login">
-          Login
-        </button>
-        <button onClick={() => this.register()} className="register">
-          Register
-        </button>
-        <button onClick={() => this.back()} className="x">
-          X
-        </button>
+        <div className="login-inputs">
+          <input
+            placeholder="Email"
+            onChange={e => this.handleChange(e.target.value, "email")}
+            type="text"
+            className="auth-email"
+          />
+          <input
+            placeholder="Password"
+            onChange={e => this.handleChange(e.target.value, "password")}
+            type="password"
+            className="auth-password"
+          />
+        </div>
+        <div className="login-buttons">
+          <button onClick={() => this.login()} className="login">
+            Login
+          </button>
+          <button onClick={() => this.register()} className="register">
+            Register
+          </button>
+          <button onClick={() => this.back()} className="x">
+            X
+          </button>
+        </div>
       </div>
     );
   }

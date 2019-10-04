@@ -14,6 +14,10 @@ class Results extends Component {
   }
 
   componentDidMount() {
+    // if (!this.state.results[0]) {
+    //   return this.props.history.push("/");
+    // }
+
     store.subscribe(() => {
       const reduxState = store.getState();
       this.setState({
@@ -23,7 +27,7 @@ class Results extends Component {
     axios.get(`/api/search?term=${this.state.searchInput}`).then(res => {
       this.setState({
         results: res.data.results
-    });
+      });
     });
   }
 

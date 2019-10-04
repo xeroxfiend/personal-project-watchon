@@ -8,7 +8,7 @@
         padding: 50px;
         margin-bottom: 100px;
         color: white;
-        width: 50%;
+        width: 35%;
         background: $midGrey;
         box-shadow: 0 3px 20px 5px #00000031;
         @include flexCenter(column);
@@ -20,6 +20,9 @@
             text-align: center;
         }
         .description {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             font-weight: 400;
             margin-bottom: 30px;
             max-width: 530px;
@@ -41,12 +44,28 @@
             }
             ;
             .search-bar:focus {
-                box-shadow: 0 1px 3px 5px #00000083;
+                box-shadow: 0 1px 10px 5px #00000083;
             }
             ;
             .search-bar:hover {
-                box-shadow: 0 1px 3px 5px #00000083;
+                box-shadow: 0 1px 10px 5px #00000083;
             }
         }
     }
+}
+
+p+p {
+    margin-left: 10px;
+}
+
+p {
+    font-weight: 300;
+}
+
+.movie {
+    font-weight: 500;
+}
+
+.tv {
+    font-weight: 500;
 }
