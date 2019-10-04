@@ -37,15 +37,20 @@ class ResultMedia extends Component {
         onClick={() => window.open(el.url)}
         src={el.icon}
         alt="location"
-        className="location-results"
+        className={el.display_name}
       />
     ));
 
     return (
       <div className="result-media">
-        <h2 className='media-title'>{this.props.data.name}</h2>
-        <img src={this.props.data.picture} alt="poster" className="poster" />
-        <h3 className="available-results">Available on: {mappedLocations}</h3>
+        <div className="title-poster-result">
+          <h2 className="media-title">{this.props.data.name}</h2>
+          <img src={this.props.data.picture} alt="poster" className="poster" />
+        </div>
+        <div className="available-result">
+          <p className="available-text-result">Available on: </p>
+          <div className="mapped-locations-result">{mappedLocations}</div>
+        </div>
         <button
           onClick={() => this.addToPlaylist()}
           className="add-to-playlist"

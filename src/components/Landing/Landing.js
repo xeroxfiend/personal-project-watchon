@@ -33,6 +33,12 @@ class Landing extends Component {
     };
   }
 
+  handleEnter(key) {
+    if (key === 13) {
+      this.handleSearch()
+    }
+  }
+
   handleChange(value) {
     this.setState({
       searchInput: value
@@ -68,6 +74,7 @@ class Landing extends Component {
               placeholder={`'${this.state.placeholderText[randomPlaceholder]}'`}
               value={this.state.searchInput}
               onChange={e => this.handleChange(e.target.value)}
+              onKeyDown={e => this.handleEnter(e.keyCode)}
               type="text"
               className="search-bar"
             />

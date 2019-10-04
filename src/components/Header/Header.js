@@ -94,6 +94,12 @@ class Header extends Component {
     });
   }
 
+  handleEnter(key) {
+    if (key === 13) {
+      this.handleSearch()
+    }
+  }
+
   render() {
     const randomPlaceholder = Math.ceil(Math.random() * 20);
     let header;
@@ -135,6 +141,7 @@ class Header extends Component {
               placeholder={`'${this.state.placeholderText[randomPlaceholder]}'`}
               value={this.state.searchInput}
               onChange={e => this.handleChange(e.target.value)}
+              onKeyDown={e => this.handleEnter(e.keyCode)}
               type="text"
               className="search-bar-header"
             />

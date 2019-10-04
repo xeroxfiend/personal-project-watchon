@@ -25,6 +25,13 @@
     }
 }
 
+.remove {
+    width: 100px;
+    &:hover {
+        box-shadow: 0 1px 10px 5px #00000083;
+    }
+}
+
 .mapped-locations {
     display: flex;
     flex-direction: column;
@@ -32,13 +39,6 @@
 
 .star-rating {
     display: flex;
-}
-
-.remove {
-    width: 100px;
-    &:hover {
-        box-shadow: 0 1px 10px 5px #00000083;
-    }
 }
 
 .empty-star {

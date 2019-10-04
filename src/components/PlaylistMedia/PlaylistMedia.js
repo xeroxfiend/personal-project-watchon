@@ -60,7 +60,6 @@ class PlaylistMedia extends Component {
   }
 
   render() {
-    console.log(this.props.data.data)
     let mappedLocations;
 
     if (this.props.data && this.props.data.data.locations) {
@@ -118,10 +117,10 @@ class PlaylistMedia extends Component {
               className={this.state.rating >= 5 ? "filled-star" : "empty-star"}
             />
           </div>
-          <h3 className="available-playlist">
+          <div className="available-playlist">
             <p className="available-text"> Available on: </p>
             <div className="mapped-locations">{mappedLocations}</div>
-          </h3>
+          </div>
           <button onClick={() => this.remove()} className="remove">
             Remove
           </button>

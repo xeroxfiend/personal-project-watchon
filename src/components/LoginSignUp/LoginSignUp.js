@@ -81,6 +81,7 @@ class LoginSignUp extends Component {
       <div className="login-sign-up">
         <div className="login-form-container">
           <div className="x-container">
+            <h2 className="login-register-title">Login or Register</h2>
             <button onClick={() => this.back()} className="x">
               X
             </button>
