@@ -1,4 +1,7 @@
+require('dotenv').config()
+const {UTELLY_URL, API_KEY} = process.env
 const axios = require("axios");
+
 
 module.exports = {
   search: (req, res) => {
@@ -10,9 +13,9 @@ module.exports = {
         {
           headers: {
             "x-rapidapi-host":
-              "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
+              UTELLY_URL,
             "x-rapidapi-key":
-              "c185859443mshac99814a7788f52p15acc8jsn3e0881fef8db"
+              API_KEY
           }
         }
       )
