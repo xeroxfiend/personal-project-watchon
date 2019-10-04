@@ -1,4 +1,5 @@
 @import '../../scssVariables/variables';
 .login-sign-up {
     @include flexCenter(column);
+    height: 99.1vh;
 }

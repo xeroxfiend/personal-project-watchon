@@ -32,7 +32,6 @@ img:hover {
 
 .search-button-landing {
     height: 30px;
-    filter: invert(100%)
 }
 
 .header {
@@ -42,8 +41,6 @@ img:hover {
     align-items: center;
     background: $darkBg;
     padding: 0 30px 0 30px;
-    position: fixed;
-    width: 97%;
     z-index: 1;
     ;
     .search {
@@ -60,6 +57,11 @@ img:hover {
 
 ;
 .not-logged-in-link {
+    text-decoration: none;
+    color: white;
+}
+
+.not-logged-in-link2 {
     text-decoration: none;
     color: white;
 }

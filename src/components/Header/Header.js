@@ -4,7 +4,6 @@ import store, {UPDATE_SEARCH_STATE, ADD_USER} from "../../store";
 import {Link} from "react-router-dom";
 import axios from "axios";
 // import loggedInImage from "../../assets/logged_in.png";
-import logo from "../../assets/logo.png";
 import searchIcon from "../../assets/search.png";
 import logoutIcon from "../../assets/logout.png";
 import swal from "sweetalert2";
@@ -105,8 +104,8 @@ class Header extends Component {
     } else {
       header = (
         <div className="header">
-          <Link to="/">
-            <img src={logo} alt="logo" className="logo" />
+          <Link className='logo' to="/">
+          <h1 className="logo">watchON</h1>
           </Link>
           <div className="search">
             <input
@@ -135,8 +134,8 @@ class Header extends Component {
               />
             </div>
           ) : (
-            <Link className="not-logged-in" to="/login">
-              <h4 className="not-logged-in">Register/Login</h4>
+            <Link className="not-logged-in-link2" to="/login">
+              <h4 className="not-logged-in"> | Login</h4>
             </Link>
           )}
         </div>
