@@ -4,13 +4,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: $primaryBackground;
+    background: $darkBg;
     padding: 0 30px 0 30px;
 }
 
 .logo {
     height: 60px;
-    border-radius: 50%;
+    text-decoration: none;
+    color: $brand;
 }
 
 img:hover {
@@ -21,7 +22,7 @@ img:hover {
     display: flex;
     .logged-in-header {
         text-decoration: none;
-        color: black;
+        color: white;
     }
 }
 
@@ -31,6 +32,7 @@ img:hover {
 
 .search-button-landing {
     height: 30px;
+    filter: invert(100%)
 }
 
 .header {
@@ -38,7 +40,7 @@ img:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: $primaryBackground;
+    background: $darkBg;
     padding: 0 30px 0 30px;
     position: fixed;
     width: 97%;
@@ -56,7 +58,18 @@ img:hover {
     }
 }
 
-.not-logged-in {
+;
+.not-logged-in-link {
     text-decoration: none;
-    color: black;
+    color: white;
+}
+
+.not-logged-in::before {
+    content: 'Register ';
+    font-weight: 300;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
 }

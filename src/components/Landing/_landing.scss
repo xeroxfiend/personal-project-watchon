@@ -2,13 +2,15 @@
 .landing {
     @include flexCenter(column);
     height: 90.1vh;
-    background: $primaryBackground;
+    background: $darkBg;
     .landing-form {
         height: 300px;
-        background: $secondaryBackground;
-        padding: 30px;
+        padding: 50px;
         margin-bottom: 100px;
         color: white;
+        width: 50%;
+        background: $midGrey;
+        box-shadow: 0 3px 20px 5px #00000031;
         @include flexCenter(column);
         border-radius: 10px;
         .landing-title {
@@ -22,12 +24,28 @@
             margin-bottom: 30px;
             max-width: 530px;
             min-width: 300px;
+            font-size: 2rem;
+            text-align: center;
         }
         .search {
             display: flex;
             align-items: center;
             .search-bar {
                 margin: 20px;
+                border-radius: 50px;
+                border: none;
+                height: 30px;
+                width: 380px;
+                padding: 10px 10px 10px 30px;
+                font-size: 1rem;
+            }
+            ;
+            .search-bar:focus {
+                box-shadow: 0 1px 3px 5px #00000083;
+            }
+            ;
+            .search-bar:hover {
+                box-shadow: 0 1px 3px 5px #00000083;
             }
         }
     }

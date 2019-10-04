@@ -35,12 +35,12 @@ class Landing extends Component {
     return (
       <div className="landing">
         <div className="landing-form">
-          <h1 className="landing-title">watchON</h1>
           <h3 className="description">
             Search for a Movie or TV show to see where you can watch it!
           </h3>
           <div className="search">
             <input
+              placeholder="type a thing"
               value={this.state.searchInput}
               onChange={e => this.handleChange(e.target.value)}
               type="text"

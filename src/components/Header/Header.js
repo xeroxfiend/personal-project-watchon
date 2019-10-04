@@ -78,8 +78,8 @@ class Header extends Component {
     if (this.props.location.pathname === "/") {
       header = (
         <div className="landing-header">
-          <Link to="/">
-            <img src={logo} alt="logo" className="logo" />
+          <Link className="logo" to="/">
+            <h1 className="logo">watchON</h1>
           </Link>
           {this.state.userId ? (
             <div className='logged-in'>
@@ -94,8 +94,8 @@ class Header extends Component {
               />
             </div>
           ) : (
-            <Link className="not-logged-in" to="/login">
-              <h4 className="not-logged-in">Register/Login</h4>
+            <Link className="not-logged-in-link" to="/login">
+              <h4 className="not-logged-in">| Login</h4>
             </Link>
           )}
         </div>

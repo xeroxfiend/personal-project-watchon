@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import axios from "axios";
 import store from "../../store";
 import starIcon from "../../assets/star.png";
-// import "./playlistmedia.css";
 
 class PlaylistMedia extends Component {
   constructor() {
