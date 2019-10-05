@@ -75,7 +75,7 @@ class PlaylistMedia extends Component {
     }
 
     return (
-      <div className="playlist-media">
+      <div className={`playlist-media-${this.props.stripe}`}>
         <div className="title-poster-playlist">
           <h2 className="playlist-title">{this.props.data.data.name}</h2>
           <img

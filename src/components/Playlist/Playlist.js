@@ -37,7 +37,7 @@ class Playlist extends Component {
 
   render() {
     const mappedPlaylist = this.state.playlist.map((el, i) => (
-      <PlaylistMedia getPlaylistFn={this.getPlaylist} data={el} key={i} />
+      <PlaylistMedia stripe={i % 2 === 0 ? 'even' : 'odd'} getPlaylistFn={this.getPlaylist} data={el} key={i} />
     ));
 
     return <div className="playlist">

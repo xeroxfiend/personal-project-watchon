@@ -1,11 +1,11 @@
 @import './scssVariables/variables';
 .results {
-    min-height: 90.1vh;
+    height: 90.1vh;
     background: $darkBg;
     display: flex;
     align-items: center;
     flex-direction: column;
-    flex-wrap: wrap;
+    overflow: auto;
 }
 
 .results-head {

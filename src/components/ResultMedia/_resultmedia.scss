@@ -1,11 +1,36 @@
 @import './scssVariables/variables';
-.result-media {
+.result-media-even {
     height: 350px;
     display: flex;
     width: 40%;
     flex-direction: row;
     padding: 20px;
     background: $midGrey;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    // text-align: center;
+    .media-title {
+        font-size: 2rem;
+        text-overflow: ellipsis;
+        width: 300px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .poster {
+        height: 300px;
+        width: 200px;
+    }
+}
+
+.result-media-odd {
+    height: 350px;
+    display: flex;
+    width: 40%;
+    flex-direction: row;
+    padding: 20px;
+    background: $lightBg;
     color: white;
     border-radius: 10px;
     margin-bottom: 20px;

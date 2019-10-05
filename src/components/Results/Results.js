@@ -43,7 +43,11 @@ class Results extends Component {
 
   render() {
     const mappedResults = this.state.results.map((el, i) => (
-      <ResultMedia data={el} key={i} />
+      <ResultMedia
+        data={el}
+        stripe={i % 2 === 0 ? 'even' : 'odd'}
+        key={i}
+      />
     ));
     return (
       <div className="results">

@@ -1,5 +1,31 @@
 @import './scssVariables/variables';
-.playlist-media {
+.playlist-media-even {
+    height: 350px;
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    padding: 20px;
+    background: $lightBg;
+    color: white;
+    border-radius: 10px;
+    // margin-left: 30%;
+    margin-bottom: 20px;
+    align-items: center;
+    // text-align: center;
+    .playlist-title {
+        font-size: 2rem;
+        text-overflow: ellipsis;
+        width: 300px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .poster {
+        height: 150px;
+        width: 100px;
+    }
+}
+
+.playlist-media-odd {
     height: 350px;
     display: flex;
     width: 50%;

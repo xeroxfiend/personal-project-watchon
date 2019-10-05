@@ -31,6 +31,7 @@ class ResultMedia extends Component {
   }
 
   render() {
+    console.log(this.props)
     const mappedLocations = this.props.data.locations.map((el, i) => (
       <img
         key={i}
@@ -42,7 +43,7 @@ class ResultMedia extends Component {
     ));
 
     return (
-      <div className="result-media">
+      <div className={`result-media-${this.props.stripe}`}>
         <div className="title-poster-result">
           <h2 className="media-title">{this.props.data.name}</h2>
           <img src={this.props.data.picture} alt="poster" className="poster" />
