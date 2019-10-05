@@ -26,6 +26,7 @@
         font-size: 1.3rem;
         background: $midGrey;
         margin-right: -10px;
+        margin-bottom: -5px;
         ;
     }
     .login-inputs {
@@ -73,6 +74,7 @@
         display: flex;
         justify-content: center;
         width: 100%;
+        margin-top: 15px;
         .login {
             background: $brand;
             width: 100px;
@@ -84,12 +86,29 @@
         .register {
             width: 100px;
             background: $midGrey;
-            color: $accent;
-            border: 1px solid $accent;
+            color: $brand;
+            border: 1px solid $brand;
             &:hover {
                 box-shadow: 0 1px 10px 5px #00000036;
             }
             ;
         }
     }
+}
+
+.logo-login {
+    color: $brand;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    margin-left: 25px;
+    margin-top: 5px;
+    &::before {
+        content: 'watch';
+        font-weight: 400;
+    }
+}
+
+.login-register-title {
+    color: white;
 }

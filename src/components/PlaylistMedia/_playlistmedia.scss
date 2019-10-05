@@ -44,12 +44,12 @@
 .empty-star {
     height: 20px;
     &:hover {
-        filter: sepia(60%) saturate(3759%) hue-rotate(546deg) brightness(95%) contrast(101%);
+        filter: sepia(60%) saturate(3759%) hue-rotate(346deg) brightness(95%) contrast(101%);
     }
 }
 
 .filled-star {
-    filter: sepia(60%) saturate(3759%) hue-rotate(546deg) brightness(95%) contrast(101%);
+    filter: sepia(60%) saturate(3759%) hue-rotate(346deg) brightness(95%) contrast(101%);
     height: 20px;
 }
 

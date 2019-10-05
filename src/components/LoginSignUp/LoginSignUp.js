@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import swal from "sweetalert2";
 import store, {ADD_USER} from "../../store";
+import {Link} from "react-router-dom";
 
 class LoginSignUp extends Component {
   constructor() {
@@ -79,6 +80,9 @@ class LoginSignUp extends Component {
   render() {
     return (
       <div className="login-sign-up">
+        <Link to='/' className='logo-login-link'>
+          <h1 className="logo-login">ON</h1>
+        </Link>
         <div className="login-form-container">
           <div className="x-container">
             <button onClick={() => this.back()} className="x">
