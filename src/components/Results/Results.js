@@ -45,7 +45,12 @@ class Results extends Component {
     const mappedResults = this.state.results.map((el, i) => (
       <ResultMedia data={el} key={i} />
     ));
-    return <div className="results">{mappedResults}</div>;
+    return (
+      <div className="results">
+        <h2 className="results-head">{`Showing results for '${this.state.searchInput}'`}</h2>
+        {mappedResults}
+      </div>
+    );
   }
 }
 

@@ -1,10 +1,16 @@
 @import './scssVariables/variables';
 .playlist {
     display: flex;
+    align-items: center;
     flex-direction: column;
     height: 90.1vh;
     background: $darkBg;
     padding-top: 30px;
     overflow: auto;
-    max-width: 90%;
+    max-width: 100%;
+}
+
+.playlist-head {
+    margin-top: 0;
+    margin-bottom: 30px;
 }
