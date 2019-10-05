@@ -81,10 +81,12 @@ class LoginSignUp extends Component {
       <div className="login-sign-up">
         <div className="login-form-container">
           <div className="x-container">
-            <h2 className="login-register-title">Login or Register</h2>
             <button onClick={() => this.back()} className="x">
               X
             </button>
+          </div>
+          <div className="container">
+            <h2 className="login-register-title">Login or Register</h2>
           </div>
           <div className="login-inputs">
             <input
@@ -101,11 +103,11 @@ class LoginSignUp extends Component {
             />
           </div>
           <div className="login-buttons">
-            <button onClick={() => this.login()} className="login">
-              Login
-            </button>
             <button onClick={() => this.register()} className="register">
               Register
+            </button>
+            <button onClick={() => this.login()} className="login">
+              Login
             </button>
           </div>
         </div>

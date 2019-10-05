@@ -2,26 +2,31 @@
 .login-sign-up {
     @include flexCenter(column);
     height: 99.1vh;
-    background: $midGrey;
+    background: $darkBg;
     .login-form-container {
-        background: $lightBg;
-        padding: 30px;
+        background: $midGrey;
+        padding: 10px 30px 30px 30px;
         border-radius: 10px;
         box-shadow: 0 3px 20px 5px #00000031;
     }
     .x-container {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
         align-items: center;
         width: 100%;
         margin-bottom: 20px;
-        .x {
-            width: 40px;
-            &:hover {
-                box-shadow: 0 1px 10px 5px #00000036;
-            }
-            ;
-        }
+    }
+    .x {
+        width: 40px;
+        color: $primaryText;
+        font-size: 1.3rem;
+        background: $midGrey;
+        margin-right: -10px;
+        ;
     }
     .login-inputs {
         display: flex;
@@ -37,11 +42,11 @@
         padding: 10px 10px 10px 30px;
         font-size: 1rem;
         &:hover {
-            box-shadow: 0 1px 10px 5px #00000036;
+            box-shadow: 0 1px 10px 5px #00000083;
         }
         ;
         &:focus {
-            box-shadow: 0 1px 10px 5px #00000036;
+            box-shadow: 0 1px 10px 5px #00000083;
         }
         ;
     }
@@ -55,11 +60,11 @@
         padding: 10px 10px 10px 30px;
         font-size: 1rem;
         &:hover {
-            box-shadow: 0 1px 10px 5px #00000036;
+            box-shadow: 0 1px 10px 5px #00000083;
         }
         ;
         &:focus {
-            box-shadow: 0 1px 10px 5px #00000036;
+            box-shadow: 0 1px 10px 5px #00000083;
         }
         ;
     }
@@ -69,12 +74,18 @@
         justify-content: center;
         width: 100%;
         .login {
+            background: $brand;
+            width: 100px;
             &:hover {
                 box-shadow: 0 1px 10px 5px #00000036;
             }
             ;
         }
         .register {
+            width: 100px;
+            background: $midGrey;
+            color: $accent;
+            border: 1px solid $accent;
             &:hover {
                 box-shadow: 0 1px 10px 5px #00000036;
             }
