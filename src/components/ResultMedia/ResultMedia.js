@@ -31,7 +31,7 @@ class ResultMedia extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props.data.poster);
     const mappedLocations = this.props.data.locations.map((el, i) => (
       <img
         key={i}
@@ -46,7 +46,15 @@ class ResultMedia extends Component {
       <div className={`result-media-${this.props.stripe}`}>
         <div className="title-poster-result">
           <h2 className="media-title">{this.props.data.name}</h2>
-          <img src={this.props.data.picture} alt="poster" className="poster" />
+          <img
+            src={
+              this.props.data.poster
+                ? this.props.data.poster
+                : this.props.data.picture
+              }
+            alt="poster"
+            className="poster"
+          />
         </div>
         <div className="available-result">
           <p className="available-text-result">Available on: </p>

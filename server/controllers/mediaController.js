@@ -3,33 +3,43 @@ const {UTELLY_URL, IMDB_URL, API_KEY} = process.env;
 const axios = require("axios");
 
 module.exports = {
-  search: (req, res) => {
+  search: async (req, res) => {
     const {term} = req.query;
 
-    axios
-      .get(`https://imdb8.p.rapidapi.com/title/find?q=${term}`, {
+
+    const utellyData = await axios.get(
+      `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${term}&country=us`,
+      {
+        headers: {
+          "x-rapidapi-host": UTELLY_URL,
+          "x-rapidapi-key": API_KEY
+        }
+      }
+    );
+
+    const imdbData = await axios.get(
+      `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${term}`,
+      {
         headers: {
           "x-rapidapi-host": IMDB_URL,
           "x-rapidapi-key": API_KEY
         }
-      })
-      .then(result => {
-        res.status(200).send(result.data.results);
-      });
+      }
+    );
 
-    // axios
-    //   .get(
-    //     `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${term}&country=us`,
-    //     {
-    //       headers: {
-    //         "x-rapidapi-host": UTELLY_URL,
-    //         "x-rapidapi-key": API_KEY
-    //       }
-    //     }
-    //   )
-    //   .then(result => {
-    //     res.status(200).send(result.data);
-    //   });
+    // res.status(200).send(imdbData.data.Search)
+    // res.status(200).send(utellyData.data.results)
+
+    for (let i = 0; i < utellyData.data.results.length; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (utellyData.data.results[i].name === imdbData.data.Search[j].Title) {
+          utellyData.data.results[i].poster = imdbData.data.Search[j].Poster
+          utellyData.data.results[i].year = imdbData.data.Search[j].Year
+        }
+      }
+    }
+
+    res.status(200).send(utellyData.data)
   },
 
   getPlaylist: (req, res) => {
