@@ -1,27 +1,35 @@
-require('dotenv').config()
-const {UTELLY_URL, API_KEY} = process.env
+require("dotenv").config();
+const {UTELLY_URL, IMDB_URL, API_KEY} = process.env;
 const axios = require("axios");
-
 
 module.exports = {
   search: (req, res) => {
     const {term} = req.query;
 
     axios
-      .get(
-        `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${term}&country=us`,
-        {
-          headers: {
-            "x-rapidapi-host":
-              UTELLY_URL,
-            "x-rapidapi-key":
-              API_KEY
-          }
+      .get(`https://imdb8.p.rapidapi.com/title/find?q=${term}`, {
+        headers: {
+          "x-rapidapi-host": IMDB_URL,
+          "x-rapidapi-key": API_KEY
         }
-      )
+      })
       .then(result => {
-        res.status(200).send(result.data);
+        res.status(200).send(result.data.results);
       });
+
+    // axios
+    //   .get(
+    //     `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${term}&country=us`,
+    //     {
+    //       headers: {
+    //         "x-rapidapi-host": UTELLY_URL,
+    //         "x-rapidapi-key": API_KEY
+    //       }
+    //     }
+    //   )
+    //   .then(result => {
+    //     res.status(200).send(result.data);
+    //   });
   },
 
   getPlaylist: (req, res) => {
@@ -39,8 +47,8 @@ module.exports = {
 
     const foundMediaId = await db.find_media(api_id);
 
-    let foundPlaylistEntry = []
-    let newMediaId = []
+    let foundPlaylistEntry = [];
+    let newMediaId = [];
 
     if (foundMediaId[0]) {
       foundPlaylistEntry = await db.find_playlist_entry({
@@ -76,14 +84,14 @@ module.exports = {
   },
 
   updatePlaylistRating: async (req, res) => {
-      const db = req.app.get('db')
-      const {userId, api_id, rating} = req.body
+    const db = req.app.get("db");
+    const {userId, api_id, rating} = req.body;
 
-      const mediaIdArr = await db.find_media(api_id)
-      const mediaId = mediaIdArr[0].media_id
+    const mediaIdArr = await db.find_media(api_id);
+    const mediaId = mediaIdArr[0].media_id;
 
-      db.update_playlist_rating({rating, userId, mediaId}).then(() => {
-          res.sendStatus(200)
-      })
+    db.update_playlist_rating({rating, userId, mediaId}).then(() => {
+      res.sendStatus(200);
+    });
   }
 };
