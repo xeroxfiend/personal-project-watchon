@@ -13,7 +13,7 @@ class ResultMedia extends Component {
   }
 
   addToPlaylist() {
-    if (!this.state.userId) swal.fire("Login to add an item to your playlist");
+    if (!this.state.userId) return swal.fire("Login to add an item to your playlist");
     axios
       .post("/api/playlist", {
         userId: this.state.userId,
