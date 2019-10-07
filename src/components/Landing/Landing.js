@@ -35,7 +35,7 @@ class Landing extends Component {
 
   handleEnter(key) {
     if (key === 13) {
-      this.handleSearch()
+      this.handleSearch();
     }
   }
 
@@ -47,7 +47,12 @@ class Landing extends Component {
 
   handleSearch() {
     if (!this.state.searchInput) {
-      return Swal.fire({background: 'lightgrey', showConfirmButton: false, title: "Enter a search term!", timer: 700});
+      return Swal.fire({
+        background: "lightgrey",
+        showConfirmButton: false,
+        title: "Enter a search term!",
+        timer: 700
+      });
     }
     store.dispatch({
       type: UPDATE_SEARCH_STATE,
@@ -71,7 +76,11 @@ class Landing extends Component {
           </h3>
           <div className="search">
             <input
-              placeholder={`'${this.state.placeholderText[randomPlaceholder]}'`}
+              placeholder={
+                this.state.placeholderText[randomPlaceholder]
+                  ? `'${this.state.placeholderText[randomPlaceholder]}'`
+                  : "'Avatar: The Last Airbender'"
+              }
               value={this.state.searchInput}
               onChange={e => this.handleChange(e.target.value)}
               onKeyDown={e => this.handleEnter(e.keyCode)}

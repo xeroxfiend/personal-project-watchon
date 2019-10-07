@@ -15,7 +15,12 @@ class ResultMedia extends Component {
 
   addToPlaylist() {
     if (!this.state.userId)
-      return swal.fire({background: 'lightgrey', showConfirmButton: false, title: "Login to add to your playlist", timer: 1500});
+      return swal.fire({
+        background: "lightgrey",
+        showConfirmButton: false,
+        title: "Login to add to your playlist",
+        timer: 1500
+      });
     axios
       .post("/api/playlist", {
         userId: this.state.userId,
@@ -30,7 +35,12 @@ class ResultMedia extends Component {
         api_id: this.props.data.id
       })
       .then(res => {
-        swal.fire({background: 'lightgrey', showConfirmButton: false, title: res.data.message, timer: 1500});
+        swal.fire({
+          background: "lightgrey",
+          showConfirmButton: false,
+          title: res.data.message,
+          timer: 1500
+        });
       });
   }
 
