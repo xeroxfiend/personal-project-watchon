@@ -20,6 +20,7 @@ class ResultMedia extends Component {
         data: JSON.stringify({
           name: this.props.data.name,
           poster: this.props.data.picture,
+          poster_imdb: this.props.data.poster ? this.props.data.poster : null,
           locations: this.props.data.locations,
           api_id: this.props.data.id
         }),
@@ -31,7 +32,7 @@ class ResultMedia extends Component {
   }
 
   render() {
-    console.log(this.props.data.poster);
+    console.log('imdbposter', this.props.data.poster, 'utellyposter', this.props.data.picture);
     const mappedLocations = this.props.data.locations.map((el, i) => (
       <img
         key={i}
