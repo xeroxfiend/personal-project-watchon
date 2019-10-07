@@ -20,6 +20,7 @@ class ResultMedia extends Component {
         data: JSON.stringify({
           name: this.props.data.name,
           poster: this.props.data.picture,
+          year: this.props.data.year ? this.props.data.year : null,
           poster_imdb: this.props.data.poster ? this.props.data.poster : null,
           locations: this.props.data.locations,
           api_id: this.props.data.id
@@ -32,7 +33,12 @@ class ResultMedia extends Component {
   }
 
   render() {
-    console.log('imdbposter', this.props.data.poster, 'utellyposter', this.props.data.picture);
+    console.log(
+      "imdbposter",
+      this.props.data.poster,
+      "utellyposter",
+      this.props.data.picture
+    );
     const mappedLocations = this.props.data.locations.map((el, i) => (
       <img
         key={i}
@@ -52,12 +58,17 @@ class ResultMedia extends Component {
               this.props.data.poster
                 ? this.props.data.poster
                 : this.props.data.picture
-              }
+            }
             alt="poster"
             className="poster"
           />
         </div>
         <div className="available-result">
+          {this.props.data.year ? (
+            <p className="year">Released: {this.props.data.year}</p>
+          ) : (
+            <div className="empty-year"></div>
+          )}
           <p className="available-text-result">Available on: </p>
           <div className="mapped-locations-result">{mappedLocations}</div>
         </div>

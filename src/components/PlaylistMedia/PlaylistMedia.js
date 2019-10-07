@@ -122,6 +122,11 @@ class PlaylistMedia extends Component {
             />
           </div>
           <div className="available-playlist">
+          {this.props.data.data.year ? (
+            <p className="year">Released: {this.props.data.data.year}</p>
+          ) : (
+            <div className="empty-year"></div>
+          )}
             <p className="available-text"> Available on: </p>
             <div className="mapped-locations">{mappedLocations}</div>
           </div>
