@@ -9,6 +9,8 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 const mediaCtrl = require('./controllers/mediaController')
 const authCtrl = require('./controllers/authController')
 
+app.use( express.static( `${__dirname}/../build` ) );
+
 app.use(express.json());
 
 app.use(
@@ -57,6 +59,10 @@ app.get('/auth/user', authCtrl.getUserData)
 
 //----------------------------------------//
 
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 massive(CONNECTION_STRING).then(db => {
   app.set("db", db);

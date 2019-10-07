@@ -47,7 +47,7 @@ class Landing extends Component {
 
   handleSearch() {
     if (!this.state.searchInput) {
-      return Swal.fire({background: 'lightgrey', showConfirmButton: false, title: "Enter a search term!", timer: 600});
+      return Swal.fire({background: 'lightgrey', showConfirmButton: false, title: "Enter a search term!", timer: 700});
     }
     store.dispatch({
       type: UPDATE_SEARCH_STATE,

@@ -67,7 +67,7 @@ class Header extends Component {
 
   handleSearch() {
     if (!this.state.searchInput) {
-      return swal.fire({background: 'lightgrey', position: 'top', showConfirmButton: false, title: "Enter a search term!", timer: 600});
+      return swal.fire({background: 'lightgrey', position: 'top', showConfirmButton: false, title: "Enter a search term!", timer: 700});
     }
     store.dispatch({
       type: UPDATE_SEARCH_STATE,

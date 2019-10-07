@@ -22,6 +22,9 @@
     .poster {
         height: 150px;
         width: 100px;
+        &:hover {
+            cursor: default;
+        }
     }
 }
 
@@ -48,6 +51,9 @@
     .poster {
         height: 150px;
         width: 100px;
+        &:hover {
+            cursor: default;
+        }
     }
 }
 
