@@ -24,8 +24,6 @@ app.use(
   })
 );
 
-//endpoints
-
 
 // --------------- Media endpoints -----------------//
 

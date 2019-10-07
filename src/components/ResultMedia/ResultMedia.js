@@ -35,7 +35,6 @@ class ResultMedia extends Component {
   }
 
   render() {
-    console.log(this.props.data.picture);
     const mappedLocations = this.props.data.locations.map((el, i) => (
       <img
         key={i}
