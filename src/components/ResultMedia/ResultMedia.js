@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import store from "../../store";
 import swal from "sweetalert2";
+import defaultPoster from "../../assets/defaultPoster.JPG";
 
 class ResultMedia extends Component {
   constructor() {
@@ -13,7 +14,8 @@ class ResultMedia extends Component {
   }
 
   addToPlaylist() {
-    if (!this.state.userId) return swal.fire("Login to add an item to your playlist");
+    if (!this.state.userId)
+      return swal.fire({background: 'lightgrey', showConfirmButton: false, title: "Login to add to your playlist", timer: 1500});
     axios
       .post("/api/playlist", {
         userId: this.state.userId,
@@ -28,11 +30,12 @@ class ResultMedia extends Component {
         api_id: this.props.data.id
       })
       .then(res => {
-        swal.fire(res.data.message);
+        swal.fire({background: 'lightgrey', showConfirmButton: false, title: res.data.message, timer: 1500});
       });
   }
 
   render() {
+    console.log(this.props.data.picture);
     const mappedLocations = this.props.data.locations.map((el, i) => (
       <img
         key={i}
@@ -49,9 +52,11 @@ class ResultMedia extends Component {
           <h2 className="media-title">{this.props.data.name}</h2>
           <img
             src={
-              this.props.data.poster
+              this.props.data.poster || this.props.data.picture
                 ? this.props.data.poster
-                : this.props.data.picture
+                  ? this.props.data.poster
+                  : this.props.data.picture
+                : defaultPoster
             }
             alt="poster"
             className="poster"

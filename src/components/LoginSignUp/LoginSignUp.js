@@ -21,7 +21,7 @@ class LoginSignUp extends Component {
 
   register() {
     if (!this.state.email || !this.state.password)
-      return swal.fire("Email and Password cannot be blank");
+      return swal.fire({background: 'lightgrey', padding: '3em', type: 'error', showConfirmButton: false, title: "Email and Password cannot be blank", timer: 1500});
 
     axios
       .post("/auth/register", {
@@ -40,13 +40,13 @@ class LoginSignUp extends Component {
       })
       .catch(err => {
         if (err.response.status === 404)
-          return swal.fire("User already exists");
+          return swal.fire({background: 'lightgrey', padding: '3em', type: 'error', showConfirmButton: false, title: "User already exists", timer: 1500});
       });
   }
 
   async login() {
     if (!this.state.email || !this.state.password)
-      return swal.fire("Email and Password cannot be blank");
+      return swal.fire({background: 'lightgrey', padding: '3em', type: 'error', showConfirmButton: false, title: "Email and password cannot be blank", timer: 1500});
     let res;
     try {
       res = await axios.post("/auth/login", {
@@ -55,7 +55,7 @@ class LoginSignUp extends Component {
       });
     } catch (err) {
       if (err.response.status === 404 || err.response.status === 403) {
-        return swal.fire("Incorrect Email or Password");
+        return swal.fire({background: 'lightgrey', padding: '3em', type: 'error', showConfirmButton: false, title: "Incorrect Email or Password", timer: 1500});
       } else {
         return swal.fire("Unknown error!");
       }

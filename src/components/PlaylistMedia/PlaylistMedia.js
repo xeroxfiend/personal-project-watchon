@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import store from "../../store";
 import starIcon from "../../assets/star.png";
+import defaultPoster from '../../assets/defaultPoster.JPG'
 
 class PlaylistMedia extends Component {
   constructor() {
@@ -80,9 +81,11 @@ class PlaylistMedia extends Component {
           <h2 className="playlist-title">{this.props.data.data.name}</h2>
           <img
             src={
-              this.props.data.data.poster_imdb
+              this.props.data.data.poster_imdb || this.props.data.data.poster
                 ? this.props.data.data.poster_imdb
-                : this.props.data.data.poster
+                  ? this.props.data.data.poster_imdb
+                  : this.props.data.data.poster
+                : defaultPoster
             }
             alt="poster"
             className="poster"
