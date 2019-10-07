@@ -27,10 +27,8 @@ module.exports = {
       }
     );
 
-    // res.status(200).send(imdbData.data.Search)
-    // res.status(200).send(utellyData.data.results)
 
-    for (let i = 0; i < utellyData.data.results.length; i++) {
+    for (let i = 0; i < 1; i++) {
       for (let j = 0; j < 3; j++) {
         if (utellyData.data.results[i].name === imdbData.data.Search[j].Title) {
           utellyData.data.results[i].poster = imdbData.data.Search[j].Poster
