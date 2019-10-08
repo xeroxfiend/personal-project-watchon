@@ -3,18 +3,17 @@
     height: 350px;
     display: flex;
     width: 450px;
-    max-width: 650px;
-    margin: 10px;
+    margin: 20px;
     padding: 20px;
     background: $midGrey;
     color: white;
     border-radius: 10px;
-    margin-bottom: 20px;
     align-items: center;
     .media-title {
         font-size: 2rem;
+        margin-bottom: 10px;
         text-overflow: ellipsis;
-        width: 350px;
+        width: 430px;
         white-space: nowrap;
         overflow: hidden;
     }
@@ -28,12 +27,35 @@
 }
 
 .add-to-playlist {
-    width: 105px;
-    &:hover {
-        box-shadow: 0 1px 10px 5px #00000031;
-    }
+    background: transparent !important;
 }
 
 .mapped-locations-result {
     display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+}
+
+.released-available-result {
+    display: flex;
+    flex-direction: column;
+    margin-left: -200px;
+}
+
+.title-img {
+    display: flex;
+    flex-direction: column;
+}
+
+.available-text-result {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-left: 0;
+    width: 121px;
+}
+
+.year {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
 }

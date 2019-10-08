@@ -3,6 +3,7 @@ import axios from "axios";
 import store from "../../store";
 import starIcon from "../../assets/star.png";
 import defaultPoster from "../../assets/defaultPoster.JPG";
+import remove from "../../assets/minus.png";
 
 class PlaylistMedia extends Component {
   constructor() {
@@ -91,7 +92,10 @@ class PlaylistMedia extends Component {
         <div className="title-star-released-available">
           <h2 className="playlist-title">{this.props.data.data.name}</h2>
           {this.props.data.data.year ? (
-            <p className="year">Released: {this.props.data.data.year}</p>
+            <p className="year-playlist">
+              Released: {" "}
+              <p className="year-number-playlist">{this.props.data.data.year}</p>
+            </p>
           ) : (
             <div className="empty-year"></div>
           )}
@@ -132,9 +136,10 @@ class PlaylistMedia extends Component {
             <div className="mapped-locations">{mappedLocations}</div>
           </div>
         </div>
-        <button onClick={() => this.remove()} className="remove">
-          Remove
-        </button>
+        <div onClick={() => this.remove()} className="remove">
+          <img className="remove-img" src={remove} alt="remove" />
+          <p className="remove-text">remove</p>
+        </div>
       </div>
     );
   }

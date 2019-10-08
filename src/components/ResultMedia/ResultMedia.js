@@ -56,7 +56,8 @@ class ResultMedia extends Component {
     ));
 
     return (
-      <div className='result-media'>
+      <div className="result-media">
+        <div className="title-img">
           <h2 className="media-title">{this.props.data.name}</h2>
           <img
             src={
@@ -69,9 +70,10 @@ class ResultMedia extends Component {
             alt="poster"
             className="poster"
           />
-        <div className="available-result">
+        </div>
+        <div className="released-available-result">
           {this.props.data.year ? (
-            <p className="year">Released: {this.props.data.year}</p>
+            <p className="year">Released: <p className='year-number'>{this.props.data.year}</p></p>
           ) : (
             <div className="empty-year"></div>
           )}
