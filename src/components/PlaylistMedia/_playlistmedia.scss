@@ -1,6 +1,7 @@
 @import './scssVariables/variables';
 .playlist-media-even {
     display: flex;
+    box-shadow: 0 3px 20px 5px #00000031;
     position: relative;
     width: 500px;
     padding: 20px;
@@ -28,6 +29,7 @@
 
 .playlist-media-odd {
     display: flex;
+    box-shadow: 0 3px 20px 5px #00000031;
     position: relative;
     width: 500px;
     padding: 20px;

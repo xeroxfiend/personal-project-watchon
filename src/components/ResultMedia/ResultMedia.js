@@ -85,7 +85,7 @@ class ResultMedia extends Component {
         </div>
         <div onClick={() => this.addToPlaylist()} className="add-image-text">
           <img src={add} alt='add' className="add-to-playlist" />
-          <p className="add-text">Playlist</p>
+          <p className="add-text">playlist</p>
         </div>
       </div>
     );
