@@ -40,7 +40,7 @@ class ResultMedia extends Component {
           background: "lightgrey",
           showConfirmButton: false,
           title: res.data.message,
-          timer: 1500
+          timer: 1000
         });
       });
   }
