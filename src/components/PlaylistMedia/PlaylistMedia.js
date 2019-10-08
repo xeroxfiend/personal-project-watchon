@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import store from "../../store";
 import starIcon from "../../assets/star.png";
-import defaultPoster from '../../assets/defaultPoster.JPG'
+import defaultPoster from "../../assets/defaultPoster.JPG";
 
 class PlaylistMedia extends Component {
   constructor() {
@@ -77,21 +77,19 @@ class PlaylistMedia extends Component {
 
     return (
       <div className={`playlist-media-${this.props.stripe}`}>
-        <div className="title-poster-playlist">
-          <h2 className="playlist-title">{this.props.data.data.name}</h2>
-          <img
-            src={
-              this.props.data.data.poster_imdb || this.props.data.data.poster
+        <img
+          src={
+            this.props.data.data.poster_imdb || this.props.data.data.poster
+              ? this.props.data.data.poster_imdb
                 ? this.props.data.data.poster_imdb
-                  ? this.props.data.data.poster_imdb
-                  : this.props.data.data.poster
-                : defaultPoster
-            }
-            alt="poster"
-            className="poster"
-          />
-        </div>
-        <div className="rating-available">
+                : this.props.data.data.poster
+              : defaultPoster
+          }
+          alt="poster"
+          className="poster"
+        />
+        <div className="title-star-released-available">
+          <h2 className="playlist-title">{this.props.data.data.name}</h2>
           <div className="star-rating">
             <img
               onClick={() => this.handleRating(1)}
@@ -124,19 +122,19 @@ class PlaylistMedia extends Component {
               className={this.state.rating >= 5 ? "filled-star" : "empty-star"}
             />
           </div>
-          <div className="available-playlist">
           {this.props.data.data.year ? (
             <p className="year">Released: {this.props.data.data.year}</p>
           ) : (
             <div className="empty-year"></div>
           )}
+          <div className="available-playlist">
             <p className="available-text"> Available on: </p>
             <div className="mapped-locations">{mappedLocations}</div>
           </div>
-          <button onClick={() => this.remove()} className="remove">
-            Remove
-          </button>
         </div>
+        <button onClick={() => this.remove()} className="remove">
+          Remove
+        </button>
       </div>
     );
   }
