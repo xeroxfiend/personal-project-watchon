@@ -74,9 +74,9 @@ class ResultMedia extends Component {
         </div>
         <div className="released-available-result">
           {this.props.data.year ? (
-            <p className="year">
+            <div className="year">
               Released: <p className="year-number">{this.props.data.year}</p>
-            </p>
+            </div>
           ) : (
             <div className="empty-year"></div>
           )}

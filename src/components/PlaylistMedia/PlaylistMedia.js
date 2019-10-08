@@ -92,14 +92,15 @@ class PlaylistMedia extends Component {
         <div className="title-star-released-available">
           <h2 className="playlist-title">{this.props.data.data.name}</h2>
           {this.props.data.data.year ? (
-            <p className="year-playlist">
+            <div className="year-playlist">
               Released: {" "}
               <p className="year-number-playlist">{this.props.data.data.year}</p>
-            </p>
+            </div>
           ) : (
             <div className="empty-year"></div>
           )}
           <div className="star-rating">
+            <p className="my-rating">My Rating:</p>
             <img
               onClick={() => this.handleRating(1)}
               src={starIcon}

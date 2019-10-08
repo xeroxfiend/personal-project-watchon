@@ -10,8 +10,13 @@
     border-radius: 10px;
     margin-bottom: 20px;
     align-items: center;
+    &:hover {
+        transform: scale(1.01);
+        transition: 0.05s ease-in-out;
+    }
     .playlist-title {
         font-size: 2rem;
+        font-weight: 500;
         text-overflow: ellipsis;
         max-width: 330px;
         white-space: nowrap;
@@ -21,8 +26,10 @@
         height: 165px;
         width: 110px;
         margin-right: 20px;
+        // -webkit-filter: brightness(100%);
         &:hover {
             cursor: default;
+            // -webkit-filter: brightness(50%);
         }
     }
 }
@@ -38,8 +45,13 @@
     border-radius: 10px;
     margin-bottom: 20px;
     align-items: center;
+    &:hover {
+        transform: scale(1.01);
+        transition: 0.05s ease-in-out;
+    }
     .playlist-title {
         font-size: 2rem;
+        font-weight: 500;
         text-overflow: ellipsis;
         max-width: 330px;
         white-space: nowrap;
@@ -49,8 +61,10 @@
         height: 165px;
         width: 110px;
         margin-right: 20px;
+        // -webkit-filter: brightness(100%);
         &:hover {
             cursor: default;
+            // -webkit-filter: brightness(50%);
         }
     }
 }
@@ -135,4 +149,9 @@
 
 .year-number-playlist {
     margin-left: 5px;
+}
+
+.my-rating {
+    margin-right: 5px;
+    font-weight: 500;
 }
