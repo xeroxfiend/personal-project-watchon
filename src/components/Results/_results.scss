@@ -3,11 +3,12 @@
     height: 90.1vh;
     background: $darkBg;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
     overflow: auto;
 }
 
 .results-head {
+    display: flex;
+    justify-content: center;
     margin: 20px 20px 30px 20px;
 }

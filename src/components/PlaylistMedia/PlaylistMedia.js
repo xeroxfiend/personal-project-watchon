@@ -90,6 +90,11 @@ class PlaylistMedia extends Component {
         />
         <div className="title-star-released-available">
           <h2 className="playlist-title">{this.props.data.data.name}</h2>
+          {this.props.data.data.year ? (
+            <p className="year">Released: {this.props.data.data.year}</p>
+          ) : (
+            <div className="empty-year"></div>
+          )}
           <div className="star-rating">
             <img
               onClick={() => this.handleRating(1)}
@@ -122,11 +127,6 @@ class PlaylistMedia extends Component {
               className={this.state.rating >= 5 ? "filled-star" : "empty-star"}
             />
           </div>
-          {this.props.data.data.year ? (
-            <p className="year">Released: {this.props.data.data.year}</p>
-          ) : (
-            <div className="empty-year"></div>
-          )}
           <div className="available-playlist">
             <p className="available-text"> Available on: </p>
             <div className="mapped-locations">{mappedLocations}</div>

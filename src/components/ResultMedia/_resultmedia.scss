@@ -1,50 +1,20 @@
 @import './scssVariables/variables';
-.result-media-even {
+.result-media {
     height: 350px;
     display: flex;
-    width: 40%;
+    width: 450px;
     max-width: 650px;
-    flex-direction: row;
+    margin: 10px;
     padding: 20px;
     background: $midGrey;
     color: white;
     border-radius: 10px;
     margin-bottom: 20px;
     align-items: center;
-    // text-align: center;
     .media-title {
         font-size: 2rem;
         text-overflow: ellipsis;
-        width: 300px;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-    .poster {
-        height: 300px;
-        width: 200px;
-        &:hover {
-            cursor: default;
-        }
-    }
-}
-
-.result-media-odd {
-    height: 350px;
-    display: flex;
-    width: 40%;
-    max-width: 650px;
-    flex-direction: row;
-    padding: 20px;
-    background: rgb(70, 77, 88);
-    color: white;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    align-items: center;
-    // text-align: center;
-    .media-title {
-        font-size: 2rem;
-        text-overflow: ellipsis;
-        width: 300px;
+        width: 350px;
         white-space: nowrap;
         overflow: hidden;
     }
@@ -66,5 +36,4 @@
 
 .mapped-locations-result {
     display: flex;
-    flex-direction: column;
 }

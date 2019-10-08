@@ -43,16 +43,12 @@ class Results extends Component {
 
   render() {
     const mappedResults = this.state.results.map((el, i) => (
-      <ResultMedia
-        data={el}
-        stripe={i % 2 === 0 ? 'even' : 'odd'}
-        key={i}
-      />
+      <ResultMedia data={el} stripe={i % 2 === 0 ? "even" : "odd"} key={i} />
     ));
     return (
-      <div className="results">
+      <div className="results-container">
         <h2 className="results-head">{`Showing results for '${this.state.searchInput}'`}</h2>
-        {mappedResults}
+        <div className="results">{mappedResults}</div>
       </div>
     );
   }
