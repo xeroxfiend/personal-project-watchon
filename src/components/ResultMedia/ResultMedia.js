@@ -3,6 +3,7 @@ import axios from "axios";
 import store from "../../store";
 import swal from "sweetalert2";
 import defaultPoster from "../../assets/defaultPoster.JPG";
+import add from '../../assets/plus.png'
 
 class ResultMedia extends Component {
   constructor() {
@@ -73,19 +74,19 @@ class ResultMedia extends Component {
         </div>
         <div className="released-available-result">
           {this.props.data.year ? (
-            <p className="year">Released: <p className='year-number'>{this.props.data.year}</p></p>
+            <p className="year">
+              Released: <p className="year-number">{this.props.data.year}</p>
+            </p>
           ) : (
             <div className="empty-year"></div>
           )}
           <p className="available-text-result">Available on: </p>
           <div className="mapped-locations-result">{mappedLocations}</div>
         </div>
-        <button
-          onClick={() => this.addToPlaylist()}
-          className="add-to-playlist"
-        >
-          Add to playlist
-        </button>
+        <div onClick={() => this.addToPlaylist()} className="add-image-text">
+          <img src={add} alt='add' className="add-to-playlist" />
+          <p className="add-text">Playlist</p>
+        </div>
       </div>
     );
   }
