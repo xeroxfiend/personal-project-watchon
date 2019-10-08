@@ -28,7 +28,8 @@ class Landing extends Component {
         "Stranger Things",
         "Seinfeld",
         "Interstellar",
-        "Gladiator"
+        "Gladiator",
+        "Avatar: The Last Airbender"
       ]
     };
   }
@@ -76,11 +77,7 @@ class Landing extends Component {
           </h3>
           <div className="search">
             <input
-              placeholder={
-                this.state.placeholderText[randomPlaceholder]
-                  ? `'${this.state.placeholderText[randomPlaceholder]}'`
-                  : "'Avatar: The Last Airbender'"
-              }
+              placeholder={`'${this.state.placeholderText[randomPlaceholder]}'`}
               value={this.state.searchInput}
               onChange={e => this.handleChange(e.target.value)}
               onKeyDown={e => this.handleEnter(e.keyCode)}

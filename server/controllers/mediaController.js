@@ -4,10 +4,10 @@ const axios = require("axios");
 
 module.exports = {
   search: async (req, res) => {
+    const db = req.app.get('db')
     const {term} = req.query;
 
-
-    const utellyData = await axios.get(
+    const utellyDataPromise = axios.get(
       `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${term}&country=us`,
       {
         headers: {
@@ -17,7 +17,7 @@ module.exports = {
       }
     );
 
-    const imdbData = await axios.get(
+    const imdbDataPromise = axios.get(
       `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${term}`,
       {
         headers: {
@@ -27,17 +27,42 @@ module.exports = {
       }
     );
 
+    const promiseArr = [utellyDataPromise, imdbDataPromise]
 
-    for (let i = 0; i < 1; i++) {
-      for (let j = 0; j < 3; j++) {
-        if (utellyData.data.results[i].name === imdbData.data.Search[j].Title) {
-          utellyData.data.results[i].poster = imdbData.data.Search[j].Poster
-          utellyData.data.results[i].year = imdbData.data.Search[j].Year
+    const [utellyData, imdbData] = await Promise.all(promiseArr)
+
+    for (let i = 0; i < utellyData.data.results.length; i++) {
+      for (let j = 0; j < imdbData.data.Search.length; j++) {
+        if (
+          (utellyData.data.results[i].name !==
+            utellyData.data.results[0].name ||
+            i === 0) &&
+          utellyData.data.results[i].name === imdbData.data.Search[j].Title
+        ) {
+          utellyData.data.results[i].poster = imdbData.data.Search[j].Poster;
+          utellyData.data.results[i].year = imdbData.data.Search[j].Year;
+          break
         }
       }
     }
 
-    res.status(200).send(utellyData.data)
+    const IdArr = utellyData.data.results.map(el => el.id)
+
+    const dbResults = await db.media.find({api_id: IdArr})
+
+    for (let i = 0; i < utellyData.data.results.length; i++) {
+      for (let j = 0; j < dbResults.length; j++) {
+        if (utellyData.data.results[i].id === dbResults[j].api_id) {
+          utellyData.data.results[i] = dbResults[j].data
+          utellyData.data.results[i].picture = utellyData.data.results[i].poster 
+          utellyData.data.results[i].poster = utellyData.data.results[i].poster_imdb 
+        }
+      }
+    }
+
+    // console.log(dbResults)
+
+    res.status(200).send(utellyData.data);
   },
 
   getPlaylist: (req, res) => {

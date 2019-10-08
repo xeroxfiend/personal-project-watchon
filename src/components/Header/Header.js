@@ -35,7 +35,8 @@ class Header extends Component {
         "Stranger Things",
         "Seinfeld",
         "Interstellar",
-        "Gladiator"
+        "Gladiator",
+        "Avatar: The Last Airbender"
       ]
     };
   }
