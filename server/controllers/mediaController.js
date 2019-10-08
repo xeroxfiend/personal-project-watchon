@@ -61,6 +61,7 @@ module.exports = {
     }
 
     // console.log(dbResults)
+    // console.log(utellyData.data.results)
 
     res.status(200).send(utellyData.data);
   },
