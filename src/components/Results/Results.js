@@ -9,7 +9,8 @@ class Results extends Component {
     const reduxState = store.getState();
     this.state = {
       searchInput: reduxState.searchInput,
-      results: []
+      results: [],
+      hidden: true
     };
   }
 
@@ -26,7 +27,8 @@ class Results extends Component {
     });
     axios.get(`/api/search?term=${this.state.searchInput}`).then(res => {
       this.setState({
-        results: res.data.results
+        results: res.data.results,
+        hidden: false
       });
     });
   }
@@ -35,19 +37,29 @@ class Results extends Component {
     if (prevState.searchInput !== this.state.searchInput) {
       axios.get(`/api/search?term=${this.state.searchInput}`).then(res => {
         this.setState({
-          results: res.data.results
+          results: res.data.results,
+          hidden: false
         });
       });
     }
   }
 
   render() {
+    let text;
+    if (this.state.hidden) {
+      text = "";
+    } else if (this.state.results.length > 0) {
+      text = `Showing results for '${this.state.searchInput}'`;
+    } else {
+      text = `No results found for '${this.state.searchInput}'`;
+    }
+
     const mappedResults = this.state.results.map((el, i) => (
       <ResultMedia data={el} stripe={i % 2 === 0 ? "even" : "odd"} key={i} />
     ));
     return (
       <div className="results-container">
-        <h2 className="results-head">{`Showing results for '${this.state.searchInput}'`}</h2>
+        <h2 className="results-head">{text}</h2>
         <div className="results">{mappedResults}</div>
       </div>
     );

@@ -31,6 +31,11 @@ module.exports = {
 
     const [utellyData, imdbData] = await Promise.all(promiseArr)
 
+    if (utellyData.data.results.length === 0) {
+      const empty = {results: []}
+      return res.status(200).send(empty)
+    }
+
     for (let i = 0; i < utellyData.data.results.length; i++) {
       for (let j = 0; j < imdbData.data.Search.length; j++) {
         if (
@@ -54,14 +59,13 @@ module.exports = {
       for (let j = 0; j < dbResults.length; j++) {
         if (utellyData.data.results[i].id === dbResults[j].api_id) {
           utellyData.data.results[i] = dbResults[j].data
+          utellyData.data.results[i].id = utellyData.data.results[i].api_id
           utellyData.data.results[i].picture = utellyData.data.results[i].poster 
           utellyData.data.results[i].poster = utellyData.data.results[i].poster_imdb 
         }
       }
     }
 
-    // console.log(dbResults)
-    // console.log(utellyData.data.results)
 
     res.status(200).send(utellyData.data);
   },
