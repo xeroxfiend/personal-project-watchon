@@ -80,11 +80,7 @@ class PlaylistMedia extends Component {
       <div className={`playlist-media-${this.props.stripe}`}>
         <img
           src={
-            this.props.data.data.poster_imdb || this.props.data.data.poster
-              ? this.props.data.data.poster_imdb
-                ? this.props.data.data.poster_imdb
-                : this.props.data.data.poster
-              : defaultPoster
+            this.props.data.data.poster_imdb ? this.props.data.data.poster_imdb : defaultPoster
           }
           alt="poster"
           className="poster"
@@ -145,5 +141,77 @@ class PlaylistMedia extends Component {
     );
   }
 }
+
+// use the code below to use utelly images
+
+// return (
+//   <div className={`playlist-media-${this.props.stripe}`}>
+//     <img
+//       src={
+//         this.props.data.data.poster_imdb || this.props.data.data.poster
+//           ? this.props.data.data.poster_imdb
+//             ? this.props.data.data.poster_imdb
+//             : this.props.data.data.poster
+//           : defaultPoster
+//       }
+//       alt="poster"
+//       className="poster"
+//     />
+//     <div className="title-star-released-available">
+//       <h2 className="playlist-title">{this.props.data.data.name}</h2>
+//       {this.props.data.data.year ? (
+//         <div className="year-playlist">
+//           Released: {" "}
+//           <p className="year-number-playlist">{this.props.data.data.year}</p>
+//         </div>
+//       ) : (
+//         <div className="empty-year"></div>
+//       )}
+//       <div className="star-rating">
+//         <p className="my-rating">My Rating:</p>
+//         <img
+//           onClick={() => this.handleRating(1)}
+//           src={starIcon}
+//           alt="star"
+//           className={this.state.rating >= 1 ? "filled-star" : "empty-star"}
+//         />
+//         <img
+//           onClick={() => this.handleRating(2)}
+//           src={starIcon}
+//           alt="star"
+//           className={this.state.rating >= 2 ? "filled-star" : "empty-star"}
+//         />
+//         <img
+//           onClick={() => this.handleRating(3)}
+//           src={starIcon}
+//           alt="star"
+//           className={this.state.rating >= 3 ? "filled-star" : "empty-star"}
+//         />
+//         <img
+//           onClick={() => this.handleRating(4)}
+//           src={starIcon}
+//           alt="star"
+//           className={this.state.rating >= 4 ? "filled-star" : "empty-star"}
+//         />
+//         <img
+//           onClick={() => this.handleRating(5)}
+//           src={starIcon}
+//           alt="star"
+//           className={this.state.rating >= 5 ? "filled-star" : "empty-star"}
+//         />
+//       </div>
+//       <div className="available-playlist">
+//         <p className="available-text"> Available on: </p>
+//         <div className="mapped-locations">{mappedLocations}</div>
+//       </div>
+//     </div>
+//     <div onClick={() => this.remove()} className="remove">
+//       <img className="remove-img" src={remove} alt="remove" />
+//       <p className="remove-text">remove</p>
+//     </div>
+//   </div>
+// );
+// }
+// }
 
 export default PlaylistMedia;
