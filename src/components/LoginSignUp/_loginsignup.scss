@@ -4,6 +4,11 @@
     height: 99.1vh;
     background: $darkBg;
     .login-form-container {
+        @media (max-width: $smallBreak) {
+            background: transparent;
+            box-shadow: none;
+        }
+        ;
         background: $midGrey;
         padding: 10px 30px 30px 30px;
         border-radius: 10px;
@@ -20,6 +25,7 @@
         width: 100%;
         margin-bottom: 20px;
     }
+    ;
     .x {
         width: 40px;
         color: $primaryText;
@@ -27,14 +33,18 @@
         background: $midGrey;
         margin-right: -10px;
         margin-bottom: -5px;
-        ;
     }
+    ;
     .login-inputs {
         display: flex;
         flex-direction: column;
     }
     ;
     .auth-email {
+        @media (max-width: $smallBreak) {
+            width: 310px;
+        }
+        ;
         margin: 10px;
         border-radius: 50px;
         border: none;
@@ -53,6 +63,9 @@
     }
     ;
     .auth-password {
+        @media (max-width: $smallBreak) {
+            width: 310px;
+        }
         margin: 10px;
         border-radius: 50px;
         border: none;
