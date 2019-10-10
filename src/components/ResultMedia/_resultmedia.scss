@@ -30,6 +30,8 @@
     .poster {
         height: 300px;
         width: 200px;
+        // box-shadow: 0 3px 20px 5px #00000083; //31 or 83 opacity?
+        box-shadow: 0 3px 10px 2px #00000083; //31 or 83 opacity?
         &:hover {
             cursor: default;
         }

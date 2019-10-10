@@ -156,7 +156,7 @@ class Header extends Component {
             <img
               onClick={() => this.handleSearch()}
               src={searchIcon}
-              alt=""
+              alt="search"
               className="search-button-header"
             />
           </div>

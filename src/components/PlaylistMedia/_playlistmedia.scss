@@ -28,6 +28,7 @@
         height: 180px;
         width: 120px;
         margin-right: 20px;
+        box-shadow: 0 3px 20px 5px #00000083; //opacity 83 or 31?
         // -webkit-filter: brightness(100%);
         &:hover {
             cursor: default;
@@ -64,6 +65,8 @@
         height: 180px;
         width: 120px;
         margin-right: 20px;
+        // box-shadow: 0 3px 20px 5px #00000083; //opacity 83 or 31?
+        box-shadow: 0 3px 10px 2px #00000083; //31 or 83 opacity?
         // -webkit-filter: brightness(100%);
         &:hover {
             cursor: default;

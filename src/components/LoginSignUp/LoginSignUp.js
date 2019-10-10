@@ -21,7 +21,14 @@ class LoginSignUp extends Component {
 
   register() {
     if (!this.state.email || !this.state.password)
-      return swal.fire({background: 'lightgrey', padding: '3em', type: 'error', showConfirmButton: false, title: "Email and Password cannot be blank", timer: 1500});
+      return swal.fire({
+        background: "lightgrey",
+        padding: "3em",
+        type: "error",
+        showConfirmButton: false,
+        title: "Email and Password cannot be blank",
+        timer: 1500
+      });
 
     axios
       .post("/auth/register", {
@@ -40,13 +47,27 @@ class LoginSignUp extends Component {
       })
       .catch(err => {
         if (err.response.status === 404)
-          return swal.fire({background: 'lightgrey', padding: '3em', type: 'error', showConfirmButton: false, title: "User already exists", timer: 1500});
+          return swal.fire({
+            background: "lightgrey",
+            padding: "3em",
+            type: "error",
+            showConfirmButton: false,
+            title: "User already exists",
+            timer: 1500
+          });
       });
   }
 
   async login() {
     if (!this.state.email || !this.state.password)
-      return swal.fire({background: 'lightgrey', padding: '3em', type: 'error', showConfirmButton: false, title: "Email and password cannot be blank", timer: 1500});
+      return swal.fire({
+        background: "lightgrey",
+        padding: "3em",
+        type: "error",
+        showConfirmButton: false,
+        title: "Email and password cannot be blank",
+        timer: 1500
+      });
     let res;
     try {
       res = await axios.post("/auth/login", {
@@ -55,7 +76,14 @@ class LoginSignUp extends Component {
       });
     } catch (err) {
       if (err.response.status === 404 || err.response.status === 403) {
-        return swal.fire({background: 'lightgrey', padding: '3em', type: 'error', showConfirmButton: false, title: "Incorrect Email or Password", timer: 1500});
+        return swal.fire({
+          background: "lightgrey",
+          padding: "3em",
+          type: "error",
+          showConfirmButton: false,
+          title: "Incorrect Email or Password",
+          timer: 1500
+        });
       } else {
         return swal.fire("Unknown error!");
       }
@@ -80,7 +108,7 @@ class LoginSignUp extends Component {
   render() {
     return (
       <div className="login-sign-up">
-        <Link to='/' className='logo-login-link'>
+        <Link to="/" className="logo-login-link">
           <h1 className="logo-login">ON</h1>
         </Link>
         <div className="login-form-container">
@@ -94,12 +122,14 @@ class LoginSignUp extends Component {
           </div>
           <div className="login-inputs">
             <input
+              spellCheck="false"
               placeholder="Email"
               onChange={e => this.handleChange(e.target.value, "email")}
               type="text"
               className="auth-email"
             />
             <input
+              spellCheck="false"
               placeholder="Password"
               onChange={e => this.handleChange(e.target.value, "password")}
               type="password"
