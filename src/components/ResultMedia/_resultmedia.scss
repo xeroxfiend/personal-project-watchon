@@ -1,6 +1,6 @@
 @import './scssVariables/variables';
 .result-media {
-    height: 350px;
+    // height: 350px;
     position: relative;
     display: flex;
     width: 470px;
@@ -17,13 +17,15 @@
     }
     .media-title {
         color: $primaryText;
-        font-size: 2rem;
+        font-size: 1.7rem;
+        letter-spacing: -1px;
+        word-spacing: -2px;
         font-weight: 500;
         margin-bottom: 10px;
         text-overflow: ellipsis;
-        width: 420px;
-        white-space: nowrap;
-        overflow: hidden;
+        width: 400px;
+        // white-space: nowrap;
+        // overflow: hidden;
     }
     .poster {
         height: 300px;
@@ -62,7 +64,7 @@
 .released-available-result {
     display: flex;
     flex-direction: column;
-    margin-left: -200px;
+    margin-left: -180px;
 }
 
 .title-img {
