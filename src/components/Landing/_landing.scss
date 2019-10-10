@@ -81,3 +81,20 @@ p {
 .tv {
     font-weight: 500;
 }
+
+@media(max-width: 1165px) {
+    .search {
+        width: 180px;
+        justify-content: center;
+    }
+}
+
+@media(max-width: 650px) {
+    .search {
+        width: 300px;
+        justify-content: center;
+    }
+    .landing-form {
+        width: 300px;
+    }
+}
