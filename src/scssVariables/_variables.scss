@@ -5,8 +5,9 @@ $darkBg: #262c38;
 $lightBg: #545c6a;
 $midGrey: #2f3544;
 $primaryText: #87a0c9;
-$mediumBreak: 1165px;
+$largeBreak: 1165px;
 $smallBreak: 650px;
+$mediumBreak: 860px;
 @mixin flexCenter($direction) {
     display: flex;
     justify-content: center;

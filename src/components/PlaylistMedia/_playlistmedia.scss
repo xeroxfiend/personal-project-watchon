@@ -1,5 +1,8 @@
 @import './scssVariables/variables';
 .playlist-media-even {
+    @media (max-width: $smallBreak) {
+        width: 85%;
+    }
     display: flex;
     box-shadow: 0 3px 20px 5px #00000031;
     position: relative;
@@ -15,6 +18,9 @@
         transition: 0.05s ease-in-out;
     }
     .playlist-title {
+        @media (max-width: $smallBreak) {
+            margin-top: 10px;
+        }
         font-size: 1.8rem;
         font-weight: 500;
         margin-bottom: 10px;
@@ -38,6 +44,9 @@
 }
 
 .playlist-media-odd {
+    @media (max-width: $smallBreak) {
+        width: 85%;
+    }
     display: flex;
     box-shadow: 0 3px 20px 5px #00000031;
     position: relative;
@@ -53,6 +62,9 @@
         transition: 0.05s ease-in-out;
     }
     .playlist-title {
+        @media (max-width: $smallBreak) {
+            margin-top: 10px;
+        }
         font-size: 1.8rem;
         font-weight: 500;
         text-overflow: ellipsis;
@@ -102,6 +114,9 @@
 
 .mapped-locations {
     display: flex;
+    @media (max-width: $smallBreak) {
+        flex-wrap: wrap;
+    }
 }
 
 .star-rating {

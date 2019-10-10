@@ -25,6 +25,10 @@ img:hover {
     display: flex;
     align-items: center;
     .logged-in-header {
+        @media (max-width: $mediumBreak) {
+            margin-left: 40px;
+        }
+        ;
         text-decoration: none;
         color: white;
         margin-right: 10px;
@@ -36,7 +40,10 @@ img:hover {
 }
 
 .header {
-    // height: 100px;
+    height: 100px;
+    @media (max-width: $mediumBreak) {
+        width: 100%;
+    }
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,6 +62,10 @@ img:hover {
         }
         ;
         .search-bar-header {
+            @media (max-width: $mediumBreak) {
+                width: 200px;
+                margin-left: 80px;
+            }
             margin: 10px 10px 10px 10px;
             border-radius: 50px;
             border: none;

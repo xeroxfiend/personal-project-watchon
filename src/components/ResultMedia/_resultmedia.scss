@@ -1,5 +1,9 @@
 @import './scssVariables/variables';
 .result-media {
+    @media (max-width: $smallBreak) {
+        max-height: 450px;
+    }
+    ;
     max-height: 370px;
     position: relative;
     display: flex;
@@ -16,6 +20,11 @@
         transition: 0.05s ease-in-out;
     }
     .media-title {
+        @media (max-width: $smallBreak) {
+            width: 80%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
         color: $primaryText;
         font-size: 1.7rem;
         letter-spacing: -1px;
@@ -28,6 +37,11 @@
         // overflow: hidden;
     }
     .poster {
+        @media (max-width: $smallBreak) {
+            height: 270px;
+            width: 180px;
+        }
+        ;
         height: 300px;
         width: 200px;
         // box-shadow: 0 3px 20px 5px #00000083; //31 or 83 opacity?

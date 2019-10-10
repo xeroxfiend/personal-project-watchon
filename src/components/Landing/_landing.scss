@@ -40,7 +40,7 @@
             display: flex;
             align-items: center;
             .search-bar {
-                @media (max-width: $mediumBreak) {
+                @media (max-width: $largeBreak) {
                     width: 180px;
                     justify-content: center;
                 }
