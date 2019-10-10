@@ -77,6 +77,7 @@ class Landing extends Component {
           </h3>
           <div className="search">
             <input
+              spellCheck="false"
               placeholder={`'${this.state.placeholderText[randomPlaceholder]}'`}
               value={this.state.searchInput}
               onChange={e => this.handleChange(e.target.value)}

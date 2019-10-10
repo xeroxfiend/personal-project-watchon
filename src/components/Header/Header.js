@@ -68,7 +68,13 @@ class Header extends Component {
 
   handleSearch() {
     if (!this.state.searchInput) {
-      return swal.fire({background: 'lightgrey', position: 'top', showConfirmButton: false, title: "Enter a search term!", timer: 700});
+      return swal.fire({
+        background: "lightgrey",
+        position: "top",
+        showConfirmButton: false,
+        title: "Enter a search term!",
+        timer: 700
+      });
     }
     store.dispatch({
       type: UPDATE_SEARCH_STATE,
@@ -97,7 +103,7 @@ class Header extends Component {
 
   handleEnter(key) {
     if (key === 13) {
-      this.handleSearch()
+      this.handleSearch();
     }
   }
 
@@ -139,6 +145,7 @@ class Header extends Component {
           </Link>
           <div className="search">
             <input
+              spellCheck="false"
               placeholder={`'${this.state.placeholderText[randomPlaceholder]}'`}
               value={this.state.searchInput}
               onChange={e => this.handleChange(e.target.value)}
