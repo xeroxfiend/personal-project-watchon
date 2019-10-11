@@ -16,7 +16,6 @@ class PlaylistMedia extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.data)
     this.setState({
       rating: this.props.data.rating
     });

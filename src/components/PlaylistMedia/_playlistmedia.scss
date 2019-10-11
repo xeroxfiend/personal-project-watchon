@@ -118,9 +118,7 @@
 
 .mapped-locations {
     display: flex;
-    @media (max-width: $smallBreak) {
-        flex-wrap: wrap;
-    }
+    flex-wrap: wrap;
 }
 
 .star-rating {
