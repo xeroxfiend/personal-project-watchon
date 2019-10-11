@@ -1,7 +1,5 @@
 @import './scssVariables/variables';
-// .header-container {
-//     overflow: hidden;
-// }
+// .header-container {}
 .landing-header {
     height: 80px;
     display: flex;
@@ -25,10 +23,9 @@ img:hover {
     display: flex;
     align-items: center;
     .logged-in-header {
-        @media (max-width: $mediumBreak) {
-            margin-left: 40px;
+        @media (max-width: 710px) {
+            margin-right: 5px;
         }
-        ;
         text-decoration: none;
         color: white;
         margin-right: 10px;
@@ -40,10 +37,10 @@ img:hover {
 }
 
 .header {
-    height: 100px;
-    @media (max-width: $mediumBreak) {
-        width: 100%;
+    @media (max-width: $smallBreak) {
+        padding: 0 10px;
     }
+    height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,6 +51,9 @@ img:hover {
     .search {
         @include flexCenter(row);
         .search-button-header {
+            @media (max-width: $smallBreak) {
+                display: none;
+            }
             height: 30px;
             &:hover {
                 transform: scale(1.08);
@@ -64,8 +64,14 @@ img:hover {
         .search-bar-header {
             @media (max-width: $mediumBreak) {
                 width: 200px;
-                margin-left: 80px;
+                // margin-left: 80px;
             }
+            ;
+            @media (max-width: $smallBreak) {
+                width: 130px;
+                // margin-left: 120px;
+            }
+            ;
             margin: 10px 10px 10px 10px;
             border-radius: 50px;
             border: none;
@@ -105,6 +111,10 @@ img:hover {
 }
 
 .logo::before {
+    @media (max-width: 710px) {
+        content: ''
+    }
+    ;
     content: 'watch';
     font-weight: 400;
 }

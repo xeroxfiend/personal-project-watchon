@@ -78,14 +78,21 @@
 }
 
 .released-available-result {
+    @media (max-width: 500px) {
+        margin-left: -150px;
+    }
+    @media (max-width: 430px) {
+        margin-left: -100px;
+    }
     display: flex;
     flex-direction: column;
-    margin-left: -180px;
+    margin-left: -220px;
 }
 
 .title-img {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .available-text-result {
