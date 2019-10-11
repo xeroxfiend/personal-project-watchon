@@ -1,7 +1,7 @@
 @import './scssVariables/variables';
 .result-media {
     @media (max-width: $smallBreak) {
-        max-height: 450px;
+        max-height: 390px;
     }
     ;
     max-height: 370px;
@@ -84,6 +84,7 @@
     @media (max-width: 430px) {
         margin-left: -100px;
     }
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     margin-left: -220px;
