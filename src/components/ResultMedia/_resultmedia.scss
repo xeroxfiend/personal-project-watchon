@@ -16,8 +16,10 @@
     align-items: center;
     box-shadow: 0 3px 20px 5px #00000031;
     &:hover {
-        transform: scale(1.01);
-        transition: 0.05s ease-in-out;
+        .poster {
+            transform: scale(1.02);
+            transition: 0.05s ease-in-out;
+        }
     }
     .media-title {
         @media (max-width: $smallBreak) {

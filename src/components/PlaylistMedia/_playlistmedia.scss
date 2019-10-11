@@ -14,8 +14,10 @@
     margin-bottom: 20px;
     align-items: center;
     &:hover {
-        transform: scale(1.01);
-        transition: 0.05s ease-in-out;
+        .poster {
+            transform: scale(1.05);
+            transition: 0.05s ease-in-out;
+        }
     }
     .playlist-title {
         @media (max-width: $smallBreak) {
@@ -58,8 +60,10 @@
     margin-bottom: 20px;
     align-items: center;
     &:hover {
-        transform: scale(1.01);
-        transition: 0.05s ease-in-out;
+        .poster {
+            transform: scale(1.05);
+            transition: 0.05s ease-in-out;
+        }
     }
     .playlist-title {
         @media (max-width: $smallBreak) {
