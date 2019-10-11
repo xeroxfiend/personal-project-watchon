@@ -1,4 +1,4 @@
-@import './scssVariables/variables';
+@import "./scssVariables/variables";
 // .header-container {}
 .landing-header {
     height: 80px;
@@ -40,14 +40,13 @@ img:hover {
     @media (max-width: $smallBreak) {
         padding: 0 10px;
     }
-    height: 100px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: $darkBg;
     padding: 10px 30px 0 30px;
     z-index: 1;
-    ;
     .search {
         @include flexCenter(row);
         .search-button-header {
@@ -60,18 +59,15 @@ img:hover {
                 transition: 1ms;
             }
         }
-        ;
         .search-bar-header {
             @media (max-width: $mediumBreak) {
                 width: 200px;
                 // margin-left: 80px;
             }
-            ;
             @media (max-width: $smallBreak) {
                 width: 130px;
                 // margin-left: 120px;
             }
-            ;
             margin: 10px 10px 10px 10px;
             border-radius: 50px;
             border: none;
@@ -82,11 +78,9 @@ img:hover {
             &:hover {
                 box-shadow: 0 1px 10px 5px #00000036;
             }
-            ;
             &:focus {
                 box-shadow: 0 1px 10px 5px #00000036;
             }
-            ;
             &::placeholder {
                 opacity: 0.7;
             }
@@ -94,7 +88,6 @@ img:hover {
     }
 }
 
-;
 .not-logged-in-link {
     text-decoration: none;
     color: white;
@@ -106,15 +99,42 @@ img:hover {
 }
 
 .not-logged-in::before {
-    content: 'Register ';
+    content: "Register ";
     font-weight: 300;
 }
 
-.logo::before {
-    @media (max-width: 710px) {
-        content: ''
+.header {
+    .logo::before {
+        @media (max-width: 710px) {
+            content: ''
+        }
+        ;
+        content: "watch";
+        font-weight: 400;
     }
-    ;
-    content: 'watch';
-    font-weight: 400;
+}
+
+.landing-header {
+    .logo::before {
+        @media (max-width: 710px) {
+            content: 'watch';
+            font-weight: 400;
+        }
+        ;
+        @media (max-width: $largeBreak) {
+            content: 'watch';
+            font-weight: 400;
+        }
+        ;
+        @media (max-width: $mediumBreak) {
+            content: 'watch';
+            font-weight: 400;
+        }
+        ;
+        @media (min-width: 1165px) {
+            content: 'watch';
+            font-weight: 400;
+        }
+        ;
+    }
 }
