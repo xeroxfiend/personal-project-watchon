@@ -10,6 +10,8 @@
 
 .logo-link {
     height: 60px;
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: $brand;
 }
@@ -61,11 +63,9 @@ img:hover {
         .search-bar-header {
             @media (max-width: $mediumBreak) {
                 width: 200px;
-                // margin-left: 80px;
             }
             @media (max-width: $smallBreak) {
                 width: 130px;
-                // margin-left: 120px;
             }
             margin: 10px 10px 10px 10px;
             border-radius: 50px;

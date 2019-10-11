@@ -26,6 +26,9 @@
             text-align: center;
         }
         .description {
+            @media (max-width: 889px) {
+                font-size: 1.8rem;
+            }
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -92,22 +95,3 @@ p {
 .tv {
     font-weight: 500;
 }
-
-// .search-bar {
-//     @media screen and (max-width: 1165px) {
-//         width: 180px;
-//         justify-content: center;
-//     }
-//     ;
-//     @media screen and (max-width: 650px) {
-//         width: 100px;
-//     }
-// }
-// @media screen and (max-width: 650px) {
-//     .search {
-//         width: 100px;
-//     }
-//     .landing-form {
-//         width: 1000px;
-//     }
-// }
