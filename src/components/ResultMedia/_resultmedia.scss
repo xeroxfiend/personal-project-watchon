@@ -41,6 +41,10 @@
             height: 270px;
             width: 180px;
         }
+        @media (max-width: 400px) {
+            height: 240px;
+            width: 160px;
+        }
         ;
         height: 300px;
         width: 200px;
@@ -83,6 +87,9 @@
     }
     @media (max-width: 430px) {
         margin-left: -100px;
+    }
+    @media (max-width: 400px) {
+        margin-left: -70px;
     }
     margin-top: 30px;
     display: flex;
