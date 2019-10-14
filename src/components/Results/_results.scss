@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     min-height: 32px;
-    margin: 20px 20px 30px 20px;
+    margin: 20px 20px 20px 20px;
 }
 
 .filter {
@@ -28,30 +28,32 @@
 
 .netflix {
     background: #e50914;
+    height: 30px;
     padding: 7px;
     border-radius: 5px;
-    margin: 5px 5px 10px 5px;
+    margin: 0px 5px 10px 5px;
 }
 
 .amazon {
     background: #ff9900;
-    height: 32px;
-    padding: 12px 15px;
+    height: 25px;
+    padding: 10px 10px;
     border-radius: 5px;
-    margin: 5px 5px 10px 5px;
+    margin: 0px 5px 10px 5px;
 }
 
 .netflix-false {
     background: #e509144b;
+    height: 30px;
     padding: 7px;
     border-radius: 5px;
-    margin: 5px 5px 10px 5px;
+    margin: 0px 5px 10px 5px;
 }
 
 .amazon-false {
     background: #ff99004b;
-    height: 32px;
-    padding: 12px 15px;
+    height: 25px;
+    padding: 10px 10px;
     border-radius: 5px;
-    margin: 5px 5px 10px 5px;
+    margin: 0px 5px 10px 5px;
 }

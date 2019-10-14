@@ -69,6 +69,7 @@ class Results extends Component {
     let mappedResults;
 
     if (this.state.netflix && this.state.amazon) {
+      // eslint-disable-next-line
       mappedResults = this.state.results.map((el, i) => (
         <ResultMedia
           netflix={this.state.netflix}
@@ -78,13 +79,15 @@ class Results extends Component {
         />
       ));
     } else if (!this.state.netflix && this.state.amazon) {
+      // eslint-disable-next-line
       const filteredNetflix = this.state.results.filter(el => {
-        for (let i = 0; i < el.locations.length; i++)
+        for (let i = 0; i < el.locations.length; i++) {
           if (el.locations[i].name === "NetflixUS") {
-            return false;
+            break
           } else {
             return true;
           }
+        }
       });
       mappedResults = filteredNetflix.map((el, i) => (
         <ResultMedia
@@ -95,16 +98,18 @@ class Results extends Component {
         />
       ));
     } else if (this.state.netflix && !this.state.amazon) {
+      // eslint-disable-next-line
       const filteredAmazon = this.state.results.filter(el => {
-        for (let i = 0; i < el.locations.length; i++)
+        for (let i = 0; i < el.locations.length; i++) {
           if (
             el.locations[i].name === "AmazonUS" ||
             el.locations[i].name === "AmazonPrimeUS"
           ) {
-            return false;
+            break
           } else {
             return true;
           }
+        }
       });
       mappedResults = filteredAmazon.map((el, i) => (
         <ResultMedia
@@ -116,6 +121,7 @@ class Results extends Component {
       ));
     }
 
+    // console.log(mappedResults);
     // const mappedResults = this.state.results.map((el, i) => (
     //   <ResultMedia data={el} stripe={i % 2 === 0 ? "even" : "odd"} key={i} />
     // ));

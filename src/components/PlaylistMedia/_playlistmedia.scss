@@ -35,6 +35,7 @@
         color: $primaryText;
     }
     .poster {
+        object-fit: cover;
         height: 180px;
         width: 120px;
         margin-right: 20px;
@@ -83,6 +84,7 @@
         color: $primaryText;
     }
     .poster {
+        object-fit: cover;
         height: 180px;
         width: 120px;
         margin-right: 20px;
