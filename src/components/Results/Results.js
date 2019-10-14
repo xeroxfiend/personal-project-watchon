@@ -144,6 +144,7 @@ class Results extends Component {
           />
         </div>
         <div className="results">{mappedResults}</div>
+        <div className="footer-results"></div>
       </div>
     );
   }

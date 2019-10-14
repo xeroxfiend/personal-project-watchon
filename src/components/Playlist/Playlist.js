@@ -43,6 +43,7 @@ class Playlist extends Component {
     return <div className="playlist">
       <h1 className="playlist-head">Playlist</h1>
     {mappedPlaylist}
+    <div className="footer-playlist"></div>
     </div>;
   }
 }
