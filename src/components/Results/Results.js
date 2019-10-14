@@ -83,7 +83,7 @@ class Results extends Component {
       const filteredNetflix = this.state.results.filter(el => {
         for (let i = 0; i < el.locations.length; i++) {
           if (el.locations[i].name === "NetflixUS") {
-            break
+            break;
           } else {
             return true;
           }
@@ -105,7 +105,7 @@ class Results extends Component {
             el.locations[i].name === "AmazonUS" ||
             el.locations[i].name === "AmazonPrimeUS"
           ) {
-            break
+            break;
           } else {
             return true;
           }
@@ -143,8 +143,10 @@ class Results extends Component {
             className={this.state.amazon ? "amazon" : "amazon-false"}
           />
         </div>
-        <div className="results">{mappedResults}</div>
-        <div className="footer-results"></div>
+        <div className="results">
+          {mappedResults}
+          <div className="footer-results"></div>
+        </div>
       </div>
     );
   }

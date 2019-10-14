@@ -59,5 +59,18 @@
 }
 
 .footer-results {
-    height: 50px
+    @media (max-width: $smallBreak) {
+        max-height: 390px;
+    }
+    ;
+    max-height: 370px;
+    position: relative;
+    display: flex;
+    width: 470px;
+    margin: 20px;
+    padding: 20px;
+    background: transparent;
+    color: white;
+    border-radius: 10px;
+    align-items: center;
 }

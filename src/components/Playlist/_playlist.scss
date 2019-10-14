@@ -13,6 +13,7 @@
     background: $darkBg;
     padding-top: 30px;
     overflow: auto;
+    position: relative;
 }
 
 .playlist-head {
@@ -23,7 +24,5 @@
 }
 
 .footer-playlist {
-    height: 500px;
-    width: 500px;
-    background: red;
+    padding: 20px;
 }
