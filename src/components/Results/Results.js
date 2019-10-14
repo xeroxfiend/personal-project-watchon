@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import store from "../../store";
 import axios from "axios";
 import ResultMedia from "../ResultMedia/ResultMedia";
+import netflix from "../../assets/Netflix.png";
+import amazon from "../../assets/Amazon.png";
 
 class Results extends Component {
   constructor() {
@@ -10,7 +12,9 @@ class Results extends Component {
     this.state = {
       searchInput: reduxState.searchInput,
       results: [],
-      hidden: true
+      hidden: true,
+      netflix: true,
+      amazon: true
     };
   }
 
@@ -60,6 +64,18 @@ class Results extends Component {
     return (
       <div className="results-container">
         <h2 className="results-head">{text}</h2>
+        <div className="filter">
+          <img
+            src={netflix}
+            alt="netflix"
+            className={this.state.netflix ? "netflix" : "netflix-false"}
+          />
+          <img
+            src={amazon}
+            alt="amazon"
+            className={this.state.amazon ? "amazon" : "amazon-false"}
+          />
+        </div>
         <div className="results">{mappedResults}</div>
       </div>
     );

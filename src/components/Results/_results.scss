@@ -1,4 +1,4 @@
-@import './scssVariables/variables';
+@import "./scssVariables/variables";
 .results {
     @media (max-width: $smallBreak) {
         height: 82.1vh;
@@ -18,4 +18,51 @@
     display: flex;
     justify-content: center;
     margin: 20px 20px 30px 20px;
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+}
+
+.netflix {
+    background: #e50914;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 5px;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.amazon {
+    background: #ff9900;
+    height: 32px;
+    padding: 12px 7px;
+    border-radius: 5px;
+    margin: 5px;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.netflix-false {
+    background: #e50914;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 5px;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.amazon-false {
+    background: #ff9900;
+    height: 32px;
+    padding: 12px 7px;
+    border-radius: 5px;
+    margin: 5px;
+    &:hover {
+        opacity: 0.8;
+    }
 }
