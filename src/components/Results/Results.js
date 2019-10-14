@@ -48,6 +48,14 @@ class Results extends Component {
     }
   }
 
+  handleClick(key) {
+    this.setState(prevState => {
+      return {
+        [key]: !prevState[key]
+      };
+    });
+  }
+
   render() {
     let text;
     if (this.state.hidden) {
@@ -58,19 +66,72 @@ class Results extends Component {
       text = `No results found for '${this.state.searchInput}'`;
     }
 
-    const mappedResults = this.state.results.map((el, i) => (
-      <ResultMedia data={el} stripe={i % 2 === 0 ? "even" : "odd"} key={i} />
-    ));
+    let mappedResults;
+
+    if (this.state.netflix && this.state.amazon) {
+      mappedResults = this.state.results.map((el, i) => (
+        <ResultMedia
+          netflix={this.state.netflix}
+          amazon={this.state.amazon}
+          data={el}
+          key={i}
+        />
+      ));
+    } else if (!this.state.netflix && this.state.amazon) {
+      const filteredNetflix = this.state.results.filter(el => {
+        for (let i = 0; i < el.locations.length; i++)
+          if (el.locations[i].name === "NetflixUS") {
+            return false;
+          } else {
+            return true;
+          }
+      });
+      mappedResults = filteredNetflix.map((el, i) => (
+        <ResultMedia
+          netflix={this.state.netflix}
+          amazon={this.state.amazon}
+          data={el}
+          key={i}
+        />
+      ));
+    } else if (this.state.netflix && !this.state.amazon) {
+      const filteredAmazon = this.state.results.filter(el => {
+        for (let i = 0; i < el.locations.length; i++)
+          if (
+            el.locations[i].name === "AmazonUS" ||
+            el.locations[i].name === "AmazonPrimeUS"
+          ) {
+            return false;
+          } else {
+            return true;
+          }
+      });
+      mappedResults = filteredAmazon.map((el, i) => (
+        <ResultMedia
+          netflix={this.state.netflix}
+          amazon={this.state.amazon}
+          data={el}
+          key={i}
+        />
+      ));
+    }
+
+    // const mappedResults = this.state.results.map((el, i) => (
+    //   <ResultMedia data={el} stripe={i % 2 === 0 ? "even" : "odd"} key={i} />
+    // ));
+
     return (
       <div className="results-container">
         <h2 className="results-head">{text}</h2>
         <div className="filter">
           <img
+            onClick={() => this.handleClick("netflix")}
             src={netflix}
             alt="netflix"
             className={this.state.netflix ? "netflix" : "netflix-false"}
           />
           <img
+            onClick={() => this.handleClick("amazon")}
             src={amazon}
             alt="amazon"
             className={this.state.amazon ? "amazon" : "amazon-false"}

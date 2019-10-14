@@ -17,6 +17,7 @@
 .results-head {
     display: flex;
     justify-content: center;
+    min-height: 32px;
     margin: 20px 20px 30px 20px;
 }
 
@@ -29,40 +30,28 @@
     background: #e50914;
     padding: 7px;
     border-radius: 5px;
-    margin: 5px;
-    &:hover {
-        opacity: 0.8;
-    }
+    margin: 5px 5px 10px 5px;
 }
 
 .amazon {
     background: #ff9900;
     height: 32px;
-    padding: 12px 7px;
+    padding: 12px 15px;
     border-radius: 5px;
-    margin: 5px;
-    &:hover {
-        opacity: 0.8;
-    }
+    margin: 5px 5px 10px 5px;
 }
 
 .netflix-false {
-    background: #e50914;
+    background: #e509144b;
     padding: 7px;
     border-radius: 5px;
-    margin: 5px;
-    &:hover {
-        opacity: 0.8;
-    }
+    margin: 5px 5px 10px 5px;
 }
 
 .amazon-false {
-    background: #ff9900;
+    background: #ff99004b;
     height: 32px;
-    padding: 12px 7px;
+    padding: 12px 15px;
     border-radius: 5px;
-    margin: 5px;
-    &:hover {
-        opacity: 0.8;
-    }
+    margin: 5px 5px 10px 5px;
 }

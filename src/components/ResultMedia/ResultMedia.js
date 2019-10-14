@@ -3,7 +3,7 @@ import axios from "axios";
 import store from "../../store";
 import swal from "sweetalert2";
 import defaultPoster from "../../assets/defaultPoster.JPG";
-import add from '../../assets/plus.png'
+import add from "../../assets/plus.png";
 
 class ResultMedia extends Component {
   constructor() {
@@ -52,80 +52,86 @@ class ResultMedia extends Component {
         onClick={() => window.open(el.url)}
         src={el.icon}
         alt="location"
-        className={el.name}
+        className={
+          !this.props.netflix && el.name === "NetflixUS"
+            ? "hidden"
+            : !this.props.amazon && el.name === "AmazonUS"
+            ? "hidden"
+            : !this.props.amazon && el.name === "AmazonPrimeUS"
+            ? "hidden"
+            : el.name
+        }
       />
     ));
 
-//     return (
-//       <div className="result-media">
-//         <div className="title-img">
-//           <h2 className="media-title">{this.props.data.name}</h2>
-//           <img
-//             src={
-//               this.props.data.poster ? this.props.data.poster : defaultPoster
-//             }
-//             alt="poster"
-//             className="poster"
-//           />
-//         </div>
-//         <div className="released-available-result">
-//           {this.props.data.year ? (
-//             <div className="year">
-//               Released: <p className="year-number">{this.props.data.year}</p>
-//             </div>
-//           ) : (
-//             <div className="empty-year"></div>
-//           )}
-//           <p className="available-text-result">Available on: </p>
-//           <div className="mapped-locations-result">{mappedLocations}</div>
-//         </div>
-//         <div onClick={() => this.addToPlaylist()} className="add-image-text">
-//           <img src={add} alt='add' className="add-to-playlist" />
-//           <p className="add-text">playlist</p>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
+    //     return (
+    //       <div className="result-media">
+    //         <div className="title-img">
+    //           <h2 className="media-title">{this.props.data.name}</h2>
+    //           <img
+    //             src={
+    //               this.props.data.poster ? this.props.data.poster : defaultPoster
+    //             }
+    //             alt="poster"
+    //             className="poster"
+    //           />
+    //         </div>
+    //         <div className="released-available-result">
+    //           {this.props.data.year ? (
+    //             <div className="year">
+    //               Released: <p className="year-number">{this.props.data.year}</p>
+    //             </div>
+    //           ) : (
+    //             <div className="empty-year"></div>
+    //           )}
+    //           <p className="available-text-result">Available on: </p>
+    //           <div className="mapped-locations-result">{mappedLocations}</div>
+    //         </div>
+    //         <div onClick={() => this.addToPlaylist()} className="add-image-text">
+    //           <img src={add} alt='add' className="add-to-playlist" />
+    //           <p className="add-text">playlist</p>
+    //         </div>
+    //       </div>
+    //     );
+    //   }
+    // }
 
-// use the below code to use utelly images.
+    // use the below code to use utelly images.
 
-return (
-  <div className="result-media">
-    <div className="title-img">
-      <h2 className="media-title">{this.props.data.name}</h2>
-      <img
-        src={
-          this.props.data.poster || this.props.data.picture
-            ? this.props.data.poster
-              ? this.props.data.poster
-              : this.props.data.picture
-            : defaultPoster
-        }
-        alt="poster"
-        className="poster"
-      />
-    </div>
-    <div className="released-available-result">
-      {this.props.data.year ? (
-        <div className="year">
-          Released: <p className="year-number">{this.props.data.year}</p>
+    return (
+      <div className="result-media">
+        <div className="title-img">
+          <h2 className="media-title">{this.props.data.name}</h2>
+          <img
+            src={
+              this.props.data.poster || this.props.data.picture
+                ? this.props.data.poster
+                  ? this.props.data.poster
+                  : this.props.data.picture
+                : defaultPoster
+            }
+            alt="poster"
+            className="poster"
+          />
         </div>
-      ) : (
-        <div className="empty-year"></div>
-      )}
-      <p className="available-text-result">Available on: </p>
-      <div className="mapped-locations-result">{mappedLocations}</div>
-    </div>
-    <div onClick={() => this.addToPlaylist()} className="add-image-text">
-      <img src={add} alt='add' className="add-to-playlist" />
-      <p className="add-text">playlist</p>
-    </div>
-  </div>
-);
+        <div className="released-available-result">
+          {this.props.data.year ? (
+            <div className="year">
+              Released: <p className="year-number">{this.props.data.year}</p>
+            </div>
+          ) : (
+            <div className="empty-year"></div>
+          )}
+          <p className="available-text-result">Available on: </p>
+          <div className="mapped-locations-result">{mappedLocations}</div>
+        </div>
+        <div onClick={() => this.addToPlaylist()} className="add-image-text">
+          <img src={add} alt="add" className="add-to-playlist" />
+          <p className="add-text">playlist</p>
+        </div>
+      </div>
+    );
+  }
 }
-}
-
-
 
 export default ResultMedia;
