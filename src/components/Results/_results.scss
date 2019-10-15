@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    overflow: auto;
+    overflow: scroll;
 }
 
 .results-head {
@@ -73,4 +73,11 @@
     color: white;
     border-radius: 10px;
     align-items: center;
+}
+
+.loading-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
 }

@@ -13,6 +13,12 @@ class LoginSignUp extends Component {
     };
   }
 
+  handleEnter(key) {
+    if (key === 13) {
+      this.login();
+    }
+  }
+
   handleChange(value, key) {
     this.setState({
       [key]: value
@@ -129,6 +135,7 @@ class LoginSignUp extends Component {
               className="auth-email"
             />
             <input
+              onKeyDown={e => this.handleEnter(e.keyCode)}
               spellCheck="false"
               placeholder="Password"
               onChange={e => this.handleChange(e.target.value, "password")}

@@ -4,6 +4,15 @@ import axios from "axios";
 import ResultMedia from "../ResultMedia/ResultMedia";
 import netflix from "../../assets/Netflix.png";
 import amazon from "../../assets/Amazon.png";
+// import spinner from "../../assets/spinner.png";
+import {MoonLoader} from "react-spinners";
+import {css} from '@emotion/core'
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 class Results extends Component {
   constructor() {
@@ -14,7 +23,8 @@ class Results extends Component {
       results: [],
       hidden: true,
       netflix: true,
-      amazon: true
+      amazon: true,
+      loading: true
     };
   }
 
@@ -32,15 +42,20 @@ class Results extends Component {
     axios.get(`/api/search?term=${this.state.searchInput}`).then(res => {
       this.setState({
         results: res.data.results,
-        hidden: false
+        hidden: false,
+        loading: false
       });
     });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchInput !== this.state.searchInput) {
+      this.setState({
+        loading: true
+      });
       axios.get(`/api/search?term=${this.state.searchInput}`).then(res => {
         this.setState({
+          loading: false,
           results: res.data.results,
           hidden: false
         });
@@ -128,25 +143,42 @@ class Results extends Component {
 
     return (
       <div className="results-container">
-        <h2 className="results-head">{text}</h2>
-        <div className="filter">
-          <img
-            onClick={() => this.handleClick("netflix")}
-            src={netflix}
-            alt="netflix"
-            className={this.state.netflix ? "netflix" : "netflix-false"}
-          />
-          <img
-            onClick={() => this.handleClick("amazon")}
-            src={amazon}
-            alt="amazon"
-            className={this.state.amazon ? "amazon" : "amazon-false"}
-          />
-        </div>
-        <div className="results">
-          {mappedResults}
-          <div className="footer-results"></div>
-        </div>
+        {!this.state.loading ? (
+          <>
+            <h2 className="results-head">{text}</h2>
+            <div className="filter">
+              <img
+                onClick={() => this.handleClick("netflix")}
+                src={netflix}
+                alt="netflix"
+                className={this.state.netflix ? "netflix" : "netflix-false"}
+              />
+              <img
+                onClick={() => this.handleClick("amazon")}
+                src={amazon}
+                alt="amazon"
+                className={this.state.amazon ? "amazon" : "amazon-false"}
+              />
+            </div>
+            <div className="results">
+              {mappedResults}
+              <div className="footer-results"></div>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="loading-results">
+              {/* <img className='spinner' src={spinner} alt="loading"/> */}
+              <MoonLoader
+                color={'#46e4c1'}
+                css={override}
+                sizeUnit={"px"}
+                size={75}
+                loading={this.state.loading}
+              />
+            </div>
+          </>
+        )}
       </div>
     );
   }
