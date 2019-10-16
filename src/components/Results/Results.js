@@ -6,12 +6,12 @@ import netflix from "../../assets/Netflix.png";
 import amazon from "../../assets/Amazon.png";
 // import spinner from "../../assets/spinner.png";
 import {MoonLoader} from "react-spinners";
-import {css} from '@emotion/core'
+import {css} from "@emotion/core";
 
 const override = css`
-    display: block;
-    margin: 0 auto;
-    border-color: red;
+  display: block;
+  margin: 0 auto;
+  border-color: red;
 `;
 
 class Results extends Component {
@@ -96,13 +96,18 @@ class Results extends Component {
     } else if (!this.state.netflix && this.state.amazon) {
       // eslint-disable-next-line
       const filteredNetflix = this.state.results.filter(el => {
-        for (let i = 0; i < el.locations.length; i++) {
-          if (el.locations[i].name === "NetflixUS") {
-            break;
-          } else {
-            return true;
-          }
+        // for (let i = 0; i < el.locations.length; i++) {
+        //   if (el.locations[i].name === "NetflixUS") {
+        //     break;
+        //   } else {
+        //     return true;
+        //   }
+        // }
+        // return false;
+        if (el.locations.length === 1 && el.locations[0].name === "NetflixUS") {
+          return false;
         }
+        return true;
       });
       mappedResults = filteredNetflix.map((el, i) => (
         <ResultMedia
@@ -115,16 +120,25 @@ class Results extends Component {
     } else if (this.state.netflix && !this.state.amazon) {
       // eslint-disable-next-line
       const filteredAmazon = this.state.results.filter(el => {
-        for (let i = 0; i < el.locations.length; i++) {
-          if (
-            el.locations[i].name === "AmazonUS" ||
-            el.locations[i].name === "AmazonPrimeUS"
-          ) {
-            break;
-          } else {
+        // for (let i = 0; i < el.locations.length; i++) {
+        //   if (
+        //     el.locations[i].name === "AmazonUS" ||
+        //     el.locations[i].name === "AmazonPrimeUS"
+        //   ) {
+        //     break;
+        //   } else {
+        //     return true;
+        //   }
+        // }
+        // return false;
+        const netflixLocation = el.locations.find(location => {
+          if (location.name === "NetflixUS") {
             return true;
           }
-        }
+          return false;
+        });
+        if (netflixLocation) return true;
+        return false;
       });
       mappedResults = filteredAmazon.map((el, i) => (
         <ResultMedia
@@ -170,7 +184,7 @@ class Results extends Component {
             <div className="loading-results">
               {/* <img className='spinner' src={spinner} alt="loading"/> */}
               <MoonLoader
-                color={'#46e4c1'}
+                color={"#46e4c1"}
                 css={override}
                 sizeUnit={"px"}
                 size={75}
