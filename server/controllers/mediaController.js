@@ -4,7 +4,7 @@ const axios = require("axios");
 
 module.exports = {
   search: async (req, res) => {
-    const db = req.app.get('db')
+    const db = req.app.get("db");
     const {term} = req.query;
 
     const utellyDataPromise = axios.get(
@@ -27,45 +27,48 @@ module.exports = {
       }
     );
 
-    const promiseArr = [utellyDataPromise, imdbDataPromise]
+    const promiseArr = [utellyDataPromise, imdbDataPromise];
 
-    const [utellyData, imdbData] = await Promise.all(promiseArr)
+    const [utellyData, imdbData] = await Promise.all(promiseArr);
 
     if (utellyData.data.results.length === 0) {
-      const empty = {results: []}
-      return res.status(200).send(empty)
+      const empty = {results: []};
+      return res.status(200).send(empty);
     }
 
-    for (let i = 0; i < utellyData.data.results.length; i++) {
-      for (let j = 0; j < imdbData.data.Search.length; j++) {
-        if (
-          (utellyData.data.results[i].name !==
-            utellyData.data.results[0].name ||
-            i === 0) &&
-          utellyData.data.results[i].name === imdbData.data.Search[j].Title
-        ) {
-          utellyData.data.results[i].poster = imdbData.data.Search[j].Poster;
-          utellyData.data.results[i].year = imdbData.data.Search[j].Year;
-          break
+    if (imdbData.data.Search) {
+      for (let i = 0; i < utellyData.data.results.length; i++) {
+        for (let j = 0; j < imdbData.data.Search.length; j++) {
+          if (
+            (utellyData.data.results[i].name !==
+              utellyData.data.results[0].name ||
+              i === 0) &&
+            utellyData.data.results[i].name === imdbData.data.Search[j].Title
+          ) {
+            utellyData.data.results[i].poster = imdbData.data.Search[j].Poster;
+            utellyData.data.results[i].year = imdbData.data.Search[j].Year;
+            break;
+          }
         }
       }
     }
 
-    const IdArr = utellyData.data.results.map(el => el.id)
+    const IdArr = utellyData.data.results.map(el => el.id);
 
-    const dbResults = await db.media.find({api_id: IdArr})
+    const dbResults = await db.media.find({api_id: IdArr});
 
     for (let i = 0; i < utellyData.data.results.length; i++) {
       for (let j = 0; j < dbResults.length; j++) {
         if (utellyData.data.results[i].id === dbResults[j].api_id) {
-          utellyData.data.results[i] = dbResults[j].data
-          utellyData.data.results[i].id = utellyData.data.results[i].api_id
-          utellyData.data.results[i].picture = utellyData.data.results[i].poster 
-          utellyData.data.results[i].poster = utellyData.data.results[i].poster_imdb 
+          utellyData.data.results[i] = dbResults[j].data;
+          utellyData.data.results[i].id = utellyData.data.results[i].api_id;
+          utellyData.data.results[i].picture =
+            utellyData.data.results[i].poster;
+          utellyData.data.results[i].poster =
+            utellyData.data.results[i].poster_imdb;
         }
       }
     }
-
 
     res.status(200).send(utellyData.data);
   },

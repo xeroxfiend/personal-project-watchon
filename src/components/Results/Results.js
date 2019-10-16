@@ -39,13 +39,19 @@ class Results extends Component {
         searchInput: reduxState.searchInput
       });
     });
-    axios.get(`/api/search?term=${this.state.searchInput}`).then(res => {
-      this.setState({
-        results: res.data.results,
-        hidden: false,
-        loading: false
+    axios
+      .get(`/api/search?term=${this.state.searchInput}`)
+      .then(res => {
+        this.setState({
+          results: res.data.results,
+          hidden: false,
+          loading: false
+        });
+      })
+      .catch(err => {
+        // this.setState()
+        console.log(err);
       });
-    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -53,13 +59,19 @@ class Results extends Component {
       this.setState({
         loading: true
       });
-      axios.get(`/api/search?term=${this.state.searchInput}`).then(res => {
-        this.setState({
-          loading: false,
-          results: res.data.results,
-          hidden: false
+      axios
+        .get(`/api/search?term=${this.state.searchInput}`)
+        .then(res => {
+          this.setState({
+            loading: false,
+            results: res.data.results,
+            hidden: false
+          });
+        })
+        .catch(err => {
+          // this.setState()
+          console.log(err);
         });
-      });
     }
   }
 
@@ -176,7 +188,7 @@ class Results extends Component {
             </div>
             <div className="results">
               {mappedResults}
-              <div className="footer-results"></div>
+              <div className="grid-results"></div>
             </div>
           </>
         ) : (
